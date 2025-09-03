@@ -247,10 +247,20 @@ export default function Index() {
             {projects.map((project, index) => (
               <div key={index} className="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group">
                 <div className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(' ')[0]} ${getColorClasses(project.color).split(' ')[1]} relative overflow-hidden`}>
-                  <div className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center">
-                    <div className={`${getColorClasses(project.color).split(' ')[3]} text-3xl font-black`}>
-                      {index + 1}
-                    </div>
+                  <div
+                    className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center"
+                    style={project.image ? {
+                      backgroundImage: `url(${project.image})`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'center',
+                      backgroundSize: 'cover'
+                    } : {}}
+                  >
+                    {!project.image && (
+                      <div className={`${getColorClasses(project.color).split(' ')[3]} text-3xl font-black`}>
+                        {index + 1}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="p-8">
