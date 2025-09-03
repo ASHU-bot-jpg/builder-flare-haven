@@ -66,6 +66,13 @@ export default {
           'gray': "hsl(var(--portfolio-gray))",
         },
       },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-portfolio': 'linear-gradient(135deg, hsl(var(--portfolio-dark)) 0%, hsl(var(--portfolio-orange)) 100%)',
+        'gradient-warm': 'linear-gradient(45deg, #1a1a1a 0%, #2d1810 50%, #3d2418 100%)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
