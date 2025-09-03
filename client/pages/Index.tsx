@@ -71,10 +71,10 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-900">
       {/* Navigation */}
       <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="bg-portfolio-dark/80 backdrop-blur-md border border-portfolio-orange/20 rounded-full p-2 flex gap-2">
+        <div className="bg-gray-800/80 backdrop-blur-md border border-orange-500/20 rounded-full p-2 flex gap-2">
           {[
             { id: "home", label: "Home" },
             { id: "about", label: "About" },
@@ -89,8 +89,8 @@ export default function Index() {
               onClick={() => scrollToSection(nav.id)}
               className={`px-4 py-2 rounded-full transition-all ${
                 activeSection === nav.id 
-                  ? "bg-portfolio-orange text-portfolio-dark hover:bg-portfolio-orange/90" 
-                  : "text-portfolio-light hover:text-portfolio-orange hover:bg-portfolio-orange/10"
+                  ? "bg-orange-500 text-gray-900 hover:bg-orange-600" 
+                  : "text-white hover:text-orange-500 hover:bg-orange-500/10"
               }`}
             >
               {nav.label}
@@ -101,53 +101,53 @@ export default function Index() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-warm opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-orange-900/20 opacity-90"></div>
         <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-portfolio-light/80">Open to work</span>
+              <span className="text-gray-300">Open to work</span>
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-portfolio-orange font-bold text-lg tracking-wider uppercase">
+              <h2 className="text-orange-500 font-bold text-lg tracking-wider uppercase">
                 PRODUCT & MOTION DESIGNER
               </h2>
-              <h1 className="text-6xl lg:text-7xl font-bold text-portfolio-light leading-tight">
+              <h1 className="text-6xl lg:text-7xl font-bold text-white leading-tight">
                 Ashutosh Sinha
               </h1>
-              <p className="text-xl text-portfolio-light/80 leading-relaxed max-w-lg">
+              <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
                 Crafting user-centric designs that enhance product experiences for modern digital platforms.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-6">
-              <div className="flex items-center gap-3 text-portfolio-light/80">
-                <Mail className="w-5 h-5 text-portfolio-orange" />
+              <div className="flex items-center gap-3 text-gray-300">
+                <Mail className="w-5 h-5 text-orange-500" />
                 <span className="text-sm">Contact available</span>
               </div>
-              <div className="flex items-center gap-3 text-portfolio-light/80">
-                <Phone className="w-5 h-5 text-portfolio-orange" />
+              <div className="flex items-center gap-3 text-gray-300">
+                <Phone className="w-5 h-5 text-orange-500" />
                 <span className="text-sm">Phone available</span>
               </div>
-              <div className="flex items-center gap-3 text-portfolio-light/80">
-                <Linkedin className="w-5 h-5 text-portfolio-orange" />
+              <div className="flex items-center gap-3 text-gray-300">
+                <Linkedin className="w-5 h-5 text-orange-500" />
                 <span className="text-sm">linkedin.com/in/ashutoshsinha</span>
               </div>
-              <div className="flex items-center gap-3 text-portfolio-light/80">
-                <MapPin className="w-5 h-5 text-portfolio-orange" />
+              <div className="flex items-center gap-3 text-gray-300">
+                <MapPin className="w-5 h-5 text-orange-500" />
                 <span className="text-sm">Bangalore, India</span>
               </div>
             </div>
 
             <div className="flex gap-4 pt-4">
-              <Button className="bg-portfolio-orange hover:bg-portfolio-orange/90 text-portfolio-dark font-semibold px-6 py-3 rounded-full">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-gray-900 font-semibold px-6 py-3 rounded-full">
                 <Download className="w-4 h-4 mr-2" />
                 Download CV
               </Button>
               <Button 
                 variant="outline" 
-                className="border-portfolio-orange text-portfolio-orange hover:bg-portfolio-orange hover:text-portfolio-dark px-6 py-3 rounded-full"
+                className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-gray-900 px-6 py-3 rounded-full"
                 onClick={() => scrollToSection("contact")}
               >
                 Get in Touch
@@ -157,13 +157,13 @@ export default function Index() {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-to-br from-portfolio-orange/20 to-portfolio-amber/20 backdrop-blur-sm border border-portfolio-orange/20 flex items-center justify-center">
-                <div className="w-72 h-72 lg:w-88 lg:h-88 rounded-2xl bg-portfolio-dark/40 backdrop-blur-sm flex items-center justify-center">
-                  <div className="text-portfolio-orange text-6xl font-bold">AS</div>
+              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 backdrop-blur-sm border border-orange-500/20 flex items-center justify-center">
+                <div className="w-72 h-72 lg:w-88 lg:h-88 rounded-2xl bg-gray-900/40 backdrop-blur-sm flex items-center justify-center">
+                  <div className="text-orange-500 text-6xl font-bold">AS</div>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-portfolio-orange rounded-full flex items-center justify-center animate-pulse">
-                <Palette className="w-8 h-8 text-portfolio-dark" />
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center animate-pulse">
+                <Palette className="w-8 h-8 text-gray-900" />
               </div>
             </div>
           </div>
@@ -174,10 +174,10 @@ export default function Index() {
       <section id="about" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-light mb-6">
-              About <span className="text-gradient-orange">Me</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              About <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Me</span>
             </h2>
-            <p className="text-lg text-portfolio-light/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
               I'm a freelance Product and Motion Designer based in Bangalore, specializing in creating 
               user-centric designs that enhance product experiences. With expertise in UX research, 
               prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
@@ -202,10 +202,10 @@ export default function Index() {
                 description: "Deep user research and testing to create meaningful digital experiences"
               }
             ].map((item, index) => (
-              <Card key={index} className="p-6 bg-portfolio-dark/50 border-portfolio-orange/20 hover:border-portfolio-orange/40 transition-all hover:glow-orange">
-                <div className="text-portfolio-orange mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold text-portfolio-light mb-3">{item.title}</h3>
-                <p className="text-portfolio-light/70">{item.description}</p>
+              <Card key={index} className="p-6 bg-gray-800/50 border-orange-500/20 hover:border-orange-500/40 transition-all hover:shadow-lg hover:shadow-orange-500/20">
+                <div className="text-orange-500 mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                <p className="text-gray-400">{item.description}</p>
               </Card>
             ))}
           </div>
@@ -216,27 +216,27 @@ export default function Index() {
       <section id="projects" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-light mb-6">
-              Featured <span className="text-gradient-orange">Projects</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Featured <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Projects</span>
             </h2>
-            <p className="text-lg text-portfolio-light/80 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               A showcase of my recent work in product design, UX research, and motion design
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden bg-portfolio-dark/50 border-portfolio-orange/20 hover:border-portfolio-orange/40 transition-all hover:glow-orange group">
-                <div className="aspect-video bg-gradient-to-br from-portfolio-orange/10 to-portfolio-amber/10 relative overflow-hidden">
-                  <div className="w-full h-full bg-portfolio-dark/20 group-hover:bg-portfolio-dark/10 transition-colors flex items-center justify-center">
-                    <div className="text-portfolio-orange text-2xl font-bold">Project {index + 1}</div>
+              <Card key={index} className="overflow-hidden bg-gray-800/50 border-orange-500/20 hover:border-orange-500/40 transition-all hover:shadow-lg hover:shadow-orange-500/20 group">
+                <div className="aspect-video bg-gradient-to-br from-orange-500/10 to-amber-500/10 relative overflow-hidden">
+                  <div className="w-full h-full bg-gray-900/20 group-hover:bg-gray-900/10 transition-colors flex items-center justify-center">
+                    <div className="text-orange-500 text-2xl font-bold">Project {index + 1}</div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-portfolio-light mb-3 group-hover:text-portfolio-orange transition-colors">
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-orange-500 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-portfolio-light/70 mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -244,7 +244,7 @@ export default function Index() {
                       <Badge 
                         key={tagIndex} 
                         variant="secondary" 
-                        className="bg-portfolio-orange/10 text-portfolio-orange border-portfolio-orange/20 text-xs"
+                        className="bg-orange-500/10 text-orange-500 border-orange-500/20 text-xs"
                       >
                         {tag}
                       </Badge>
@@ -253,7 +253,7 @@ export default function Index() {
                   <Button 
                     variant="ghost" 
                     size="sm"
-                    className="text-portfolio-orange hover:text-portfolio-dark hover:bg-portfolio-orange p-0 h-auto"
+                    className="text-orange-500 hover:text-gray-900 hover:bg-orange-500 p-0 h-auto"
                   >
                     View Case Study
                     <ExternalLink className="w-4 h-4 ml-2" />
@@ -269,10 +269,10 @@ export default function Index() {
       <section id="skills" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-light mb-6">
-              Skills & <span className="text-gradient-orange">Expertise</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Skills & <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Expertise</span>
             </h2>
-            <p className="text-lg text-portfolio-light/80 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               My core competencies in design and user experience
             </p>
           </div>
@@ -281,12 +281,12 @@ export default function Index() {
             {skills.map((skill, index) => (
               <div key={index} className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-portfolio-light font-medium">{skill.name}</span>
-                  <span className="text-portfolio-orange font-semibold">{skill.level}%</span>
+                  <span className="text-white font-medium">{skill.name}</span>
+                  <span className="text-orange-500 font-semibold">{skill.level}%</span>
                 </div>
-                <div className="w-full bg-portfolio-dark/50 rounded-full h-2">
+                <div className="w-full bg-gray-800/50 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-portfolio-orange to-portfolio-amber h-2 rounded-full transition-all duration-1000"
+                    className="bg-gradient-to-r from-orange-500 to-amber-500 h-2 rounded-full transition-all duration-1000"
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
@@ -300,17 +300,17 @@ export default function Index() {
       <section id="contact" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-light mb-6">
-              Let's <span className="text-gradient-orange">Connect</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Let's <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Connect</span>
             </h2>
-            <p className="text-lg text-portfolio-light/80 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Available for freelance projects and full-time opportunities
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-portfolio-light mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
               
               <div className="space-y-4">
                 {[
@@ -319,11 +319,11 @@ export default function Index() {
                   { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "Bangalore, India" },
                   { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha" }
                 ].map((contact, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-lg bg-portfolio-dark/30 border border-portfolio-orange/10">
-                    <div className="text-portfolio-orange">{contact.icon}</div>
+                  <div key={index} className="flex items-center gap-4 p-4 rounded-lg bg-gray-800/30 border border-orange-500/10">
+                    <div className="text-orange-500">{contact.icon}</div>
                     <div>
-                      <div className="text-portfolio-light/60 text-sm">{contact.label}</div>
-                      <div className="text-portfolio-light">{contact.value}</div>
+                      <div className="text-gray-400 text-sm">{contact.label}</div>
+                      <div className="text-white">{contact.value}</div>
                     </div>
                   </div>
                 ))}
@@ -331,7 +331,7 @@ export default function Index() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-portfolio-light mb-6">Follow My Work</h3>
+              <h3 className="text-2xl font-semibold text-white mb-6">Follow My Work</h3>
               
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -343,19 +343,19 @@ export default function Index() {
                   <Button
                     key={index}
                     variant="outline"
-                    className="h-auto p-4 flex flex-col items-center gap-3 border-portfolio-orange/20 hover:border-portfolio-orange hover:bg-portfolio-orange/10 transition-all"
+                    className="h-auto p-4 flex flex-col items-center gap-3 border-orange-500/20 hover:border-orange-500 hover:bg-orange-500/10 transition-all"
                   >
-                    <div className="text-portfolio-orange">{social.icon}</div>
+                    <div className="text-orange-500">{social.icon}</div>
                     <div className="text-center">
-                      <div className="text-portfolio-light font-medium text-sm">{social.label}</div>
-                      <div className="text-portfolio-light/60 text-xs">{social.url}</div>
+                      <div className="text-white font-medium text-sm">{social.label}</div>
+                      <div className="text-gray-400 text-xs">{social.url}</div>
                     </div>
                   </Button>
                 ))}
               </div>
 
               <div className="mt-8">
-                <Button className="w-full bg-portfolio-orange hover:bg-portfolio-orange/90 text-portfolio-dark font-semibold py-3 rounded-full">
+                <Button className="w-full bg-orange-500 hover:bg-orange-600 text-gray-900 font-semibold py-3 rounded-full">
                   <Download className="w-4 h-4 mr-2" />
                   Download Portfolio CV
                 </Button>
@@ -366,9 +366,9 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-portfolio-orange/20">
+      <footer className="py-8 px-4 border-t border-orange-500/20">
         <div className="container mx-auto text-center">
-          <p className="text-portfolio-light/60">
+          <p className="text-gray-400">
             © 2024 Ashutosh Sinha. Designed with passion in Bangalore, India.
           </p>
         </div>
