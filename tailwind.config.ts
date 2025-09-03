@@ -57,13 +57,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Portfolio specific colors
-        'portfolio': {
-          'dark': "hsl(var(--portfolio-dark))",
-          'orange': "hsl(var(--portfolio-orange))",
-          'amber': "hsl(var(--portfolio-amber))",
-          'light': "hsl(var(--portfolio-light))",
-          'gray': "hsl(var(--portfolio-gray))",
+        // Modern glassmorphism colors
+        'glass': {
+          'dark': "hsl(var(--glass-dark))",
+          'surface': "hsl(var(--glass-surface))",
+          'border': "hsl(var(--glass-border))",
+          'text': "hsl(var(--glass-text))",
+          'muted': "hsl(var(--glass-muted))",
+          'accent': "hsl(var(--glass-accent))",
+          'green': "hsl(var(--glass-green))",
+          'blue': "hsl(var(--glass-blue))",
+          'purple': "hsl(var(--glass-purple))",
         },
       },
       fontFamily: {
