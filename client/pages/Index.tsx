@@ -5,31 +5,36 @@ const projects = [
     title: "Seekho App UX Case Study",
     description: "Comprehensive analysis and redesign to improve user engagement and functionality",
     tags: ["UX Research", "Mobile App", "Education"],
-    color: "blue"
+    color: "blue",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3"
   },
   {
-    title: "Swish Redesign Case Study", 
+    title: "Swish Redesign Case Study",
     description: "Platform revamp focusing on enhanced user experience and interface design",
     tags: ["Web Design", "Fintech", "UI/UX"],
-    color: "green"
+    color: "green",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2"
   },
   {
     title: "Think41 Website Redesign",
     description: "Interactive landing page providing seamless user experience",
     tags: ["Web Design", "Landing Page", "B2B"],
-    color: "purple"
+    color: "purple",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F33b4ca4a9bd649caac069be599d5c37e"
   },
   {
     title: "Giva App Redesign",
     description: "Profile and landing page redesign improving user interaction and aesthetics",
     tags: ["Mobile App", "E-commerce", "Fashion"],
-    color: "blue"
+    color: "blue",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F528fa2b04788485586d4a38752a51ea7"
   },
   {
     title: "XO Music App UI Design",
     description: "Music app interface inspired by The Weeknd's theme with immersive UX",
     tags: ["Music App", "Dark Theme", "Entertainment"],
-    color: "green"
+    color: "green",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F8132c335618a451b821cf7c0c23304ba"
   },
   {
     title: "Kano Analysis for Taste My Plate",
