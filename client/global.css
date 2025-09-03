@@ -51,12 +51,16 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Portfolio specific variables */
-    --portfolio-dark: 20 14% 10%;
-    --portfolio-orange: 25 95% 53%;
-    --portfolio-amber: 38 92% 50%;
-    --portfolio-light: 0 0% 98%;
-    --portfolio-gray: 215 16% 47%;
+    /* Glassmorphism design variables */
+    --glass-dark: 220 13% 9%;
+    --glass-surface: 220 13% 15%;
+    --glass-border: 220 13% 25%;
+    --glass-text: 0 0% 98%;
+    --glass-muted: 220 9% 65%;
+    --glass-accent: 217 91% 60%;
+    --glass-green: 142 76% 36%;
+    --glass-blue: 212 100% 48%;
+    --glass-purple: 250 84% 54%;
   }
 
   .dark {
