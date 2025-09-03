@@ -4,43 +4,62 @@ const projects = [
   {
     title: "Seekho App UX Case Study",
     description: "Comprehensive analysis and redesign to improve user engagement and functionality",
-    tags: ["UX Research", "Mobile App", "Education"]
+    tags: ["UX Research", "Mobile App", "Education"],
+    color: "blue"
   },
   {
     title: "Swish Redesign Case Study", 
     description: "Platform revamp focusing on enhanced user experience and interface design",
-    tags: ["Web Design", "Fintech", "UI/UX"]
+    tags: ["Web Design", "Fintech", "UI/UX"],
+    color: "green"
   },
   {
     title: "Think41 Website Redesign",
     description: "Interactive landing page providing seamless user experience",
-    tags: ["Web Design", "Landing Page", "B2B"]
+    tags: ["Web Design", "Landing Page", "B2B"],
+    color: "purple"
   },
   {
     title: "Giva App Redesign",
     description: "Profile and landing page redesign improving user interaction and aesthetics",
-    tags: ["Mobile App", "E-commerce", "Fashion"]
+    tags: ["Mobile App", "E-commerce", "Fashion"],
+    color: "blue"
   },
   {
     title: "XO Music App UI Design",
     description: "Music app interface inspired by The Weeknd's theme with immersive UX",
-    tags: ["Music App", "Dark Theme", "Entertainment"]
+    tags: ["Music App", "Dark Theme", "Entertainment"],
+    color: "green"
   },
   {
     title: "Kano Analysis for Taste My Plate",
     description: "User needs analysis to inform design decisions for food app",
-    tags: ["UX Research", "Food App", "Analytics"]
+    tags: ["UX Research", "Food App", "Analytics"],
+    color: "purple"
   }
 ];
 
 const skills = [
-  { name: "Product Design", level: 95 },
-  { name: "Motion Design", level: 90 },
-  { name: "UX Research", level: 88 },
-  { name: "Prototyping", level: 92 },
-  { name: "Design Systems", level: 85 },
-  { name: "User Testing", level: 87 }
+  { name: "Product Design", level: 95, color: "blue" },
+  { name: "Motion Design", level: 90, color: "green" },
+  { name: "UX Research", level: 88, color: "purple" },
+  { name: "Prototyping", level: 92, color: "blue" },
+  { name: "Design Systems", level: 85, color: "green" },
+  { name: "User Testing", level: 87, color: "purple" }
 ];
+
+const getColorClasses = (color: string) => {
+  switch (color) {
+    case 'blue':
+      return 'from-glass-blue/20 to-glass-blue/5 border-glass-blue/30 text-glass-blue';
+    case 'green':
+      return 'from-glass-green/20 to-glass-green/5 border-glass-green/30 text-glass-green';
+    case 'purple':
+      return 'from-glass-purple/20 to-glass-purple/5 border-glass-purple/30 text-glass-purple';
+    default:
+      return 'from-glass-accent/20 to-glass-accent/5 border-glass-accent/30 text-glass-accent';
+  }
+};
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
@@ -54,10 +73,17 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-glass-dark relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glass-blue/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glass-purple/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-3/4 left-3/4 w-64 h-64 bg-glass-green/10 rounded-full blur-2xl"></div>
+      </div>
+
       {/* Navigation */}
       <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="bg-gray-800/80 backdrop-blur-md border border-orange-500/20 rounded-full p-2 flex gap-2">
+        <div className="glass-nav rounded-full p-2 flex gap-2">
           {[
             { id: "home", label: "Home" },
             { id: "about", label: "About" },
@@ -68,65 +94,65 @@ export default function Index() {
             <button
               key={nav.id}
               onClick={() => scrollToSection(nav.id)}
-              className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
+              className={`px-6 py-3 rounded-full transition-all text-sm font-medium relative overflow-hidden ${
                 activeSection === nav.id 
-                  ? "bg-orange-500 text-gray-900" 
-                  : "text-white hover:text-orange-500 hover:bg-orange-500/10"
+                  ? "bg-glass-accent text-white shadow-lg glow-accent" 
+                  : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
               }`}
             >
-              {nav.label}
+              {activeSection === nav.id && (
+                <div className="absolute inset-0 bg-gradient-to-r from-glass-blue to-glass-purple opacity-80 rounded-full"></div>
+              )}
+              <span className="relative z-10">{nav.label}</span>
             </button>
           ))}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-orange-900/20 opacity-90"></div>
-        <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="space-y-6">
+      <section id="home" className="min-h-screen flex items-center justify-center px-4 relative">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div className="space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-gray-300">Open to work</span>
+              <div className="w-3 h-3 bg-glass-green rounded-full animate-pulse"></div>
+              <span className="text-glass-muted font-medium">Open to work</span>
             </div>
 
-            <div className="space-y-4">
-              <h2 className="text-orange-500 font-bold text-lg tracking-wider uppercase">
+            <div className="space-y-6">
+              <h2 className="text-glass-accent font-bold text-lg tracking-[0.2em] uppercase">
                 PRODUCT & MOTION DESIGNER
               </h2>
-              <h1 className="text-6xl lg:text-7xl font-bold text-white leading-tight">
+              <h1 className="text-6xl lg:text-8xl font-black text-glass-text leading-[0.9] tracking-tight">
                 Ashutosh Sinha
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
+              <p className="text-xl lg:text-2xl text-glass-muted leading-relaxed max-w-lg font-light">
                 Crafting user-centric designs that enhance product experiences for modern digital platforms.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 pt-6">
-              <div className="flex items-center gap-3 text-gray-300">
-                <span className="text-orange-500">✉</span>
-                <span className="text-sm">Contact available</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <span className="text-orange-500">📞</span>
-                <span className="text-sm">Phone available</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <span className="text-orange-500">💼</span>
-                <span className="text-sm">linkedin.com/in/ashutoshsinha</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <span className="text-orange-500">📍</span>
-                <span className="text-sm">Bangalore, India</span>
-              </div>
+            <div className="grid grid-cols-2 gap-6 pt-8">
+              {[
+                { icon: "✉", label: "Email", value: "Contact available" },
+                { icon: "📞", label: "Phone", value: "Phone available" },
+                { icon: "💼", label: "LinkedIn", value: "ashutoshsinha" },
+                { icon: "📍", label: "Location", value: "Bangalore, India" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-3 text-glass-muted">
+                  <span className="text-glass-accent text-lg">{item.icon}</span>
+                  <div>
+                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide">{item.label}</div>
+                    <div className="text-sm font-medium">{item.value}</div>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="flex gap-4 pt-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-gray-900 font-semibold px-6 py-3 rounded-full transition-colors">
+            <div className="flex gap-4 pt-8">
+              <button className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl">
                 Download CV
               </button>
               <button 
-                className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-gray-900 px-6 py-3 rounded-full transition-colors"
+                className="glass-card text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl transition-all hover:scale-105"
                 onClick={() => scrollToSection("contact")}
               >
                 Get in Touch
@@ -136,13 +162,14 @@ export default function Index() {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 backdrop-blur-sm border border-orange-500/20 flex items-center justify-center">
-                <div className="w-72 h-72 lg:w-88 lg:h-88 rounded-2xl bg-gray-900/40 backdrop-blur-sm flex items-center justify-center">
-                  <div className="text-orange-500 text-6xl font-bold">AS</div>
+              <div className="w-80 h-80 lg:w-[28rem] lg:h-[28rem] glass-card rounded-[3rem] flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-glass-blue/20 via-glass-purple/10 to-glass-green/20"></div>
+                <div className="relative z-10 text-6xl lg:text-8xl font-black text-gradient-accent">
+                  AS
                 </div>
-              </div>
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center animate-pulse">
-                <span className="text-gray-900 text-2xl">🎨</span>
+                <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-glass-green to-glass-blue rounded-full flex items-center justify-center animate-pulse glow-green">
+                  <span className="text-white text-3xl">🎨</span>
+                </div>
               </div>
             </div>
           </div>
@@ -150,13 +177,13 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4">
+      <section id="about" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              About <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Me</span>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
+              About <span className="text-gradient-spotify">Me</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
               I'm a freelance Product and Motion Designer based in Bangalore, specializing in creating 
               user-centric designs that enhance product experiences. With expertise in UX research, 
               prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
@@ -168,23 +195,26 @@ export default function Index() {
               {
                 icon: "📱",
                 title: "Mobile-First Design",
-                description: "Crafting responsive experiences that work seamlessly across all devices"
+                description: "Crafting responsive experiences that work seamlessly across all devices",
+                color: "blue"
               },
               {
                 icon: "⚡",
                 title: "Fast Prototyping",
-                description: "Rapid iteration and testing to validate ideas and improve user experience"
+                description: "Rapid iteration and testing to validate ideas and improve user experience",
+                color: "green"
               },
               {
                 icon: "👥",
                 title: "User-Centered",
-                description: "Deep user research and testing to create meaningful digital experiences"
+                description: "Deep user research and testing to create meaningful digital experiences",
+                color: "purple"
               }
             ].map((item, index) => (
-              <div key={index} className="p-6 bg-gray-800/50 border border-orange-500/20 rounded-lg hover:border-orange-500/40 transition-all hover:shadow-lg hover:shadow-orange-500/20">
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+              <div key={index} className="glass-card p-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
+                <h3 className="text-2xl font-bold text-glass-text mb-4">{item.title}</h3>
+                <p className="text-glass-muted leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -192,43 +222,45 @@ export default function Index() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4">
+      <section id="projects" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Featured <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Projects</span>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
+              Featured <span className="text-gradient-accent">Projects</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               A showcase of my recent work in product design, UX research, and motion design
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-gray-800/50 border border-orange-500/20 rounded-lg overflow-hidden hover:border-orange-500/40 transition-all hover:shadow-lg hover:shadow-orange-500/20 group">
-                <div className="aspect-video bg-gradient-to-br from-orange-500/10 to-amber-500/10 relative overflow-hidden">
-                  <div className="w-full h-full bg-gray-900/20 group-hover:bg-gray-900/10 transition-colors flex items-center justify-center">
-                    <div className="text-orange-500 text-2xl font-bold">Project {index + 1}</div>
+              <div key={index} className="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group">
+                <div className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(' ')[0]} ${getColorClasses(project.color).split(' ')[1]} relative overflow-hidden`}>
+                  <div className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center">
+                    <div className={`${getColorClasses(project.color).split(' ')[3]} text-3xl font-black`}>
+                      {index + 1}
+                    </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-orange-500 transition-colors">
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-glass-text mb-4 group-hover:text-gradient-accent transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                  <p className="text-glass-muted mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, tagIndex) => (
                       <span 
                         key={tagIndex} 
-                        className="bg-orange-500/10 text-orange-500 border border-orange-500/20 text-xs px-2 py-1 rounded"
+                        className={`bg-gradient-to-r ${getColorClasses(project.color)} border backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium`}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <button className="text-orange-500 hover:text-gray-900 hover:bg-orange-500 px-4 py-2 rounded transition-colors text-sm">
+                  <button className={`${getColorClasses(project.color).split(' ')[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium`}>
                     View Case Study →
                   </button>
                 </div>
@@ -239,27 +271,29 @@ export default function Index() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4">
+      <section id="skills" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Skills & <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Expertise</span>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
+              Skills & <span className="text-gradient-spotify">Expertise</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               My core competencies in design and user experience
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {skills.map((skill, index) => (
-              <div key={index} className="space-y-3">
+              <div key={index} className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-white font-medium">{skill.name}</span>
-                  <span className="text-orange-500 font-semibold">{skill.level}%</span>
+                  <span className="text-2xl font-bold text-glass-text">{skill.name}</span>
+                  <span className={`text-xl font-black ${getColorClasses(skill.color).split(' ')[3]}`}>
+                    {skill.level}%
+                  </span>
                 </div>
-                <div className="w-full bg-gray-800/50 rounded-full h-2">
+                <div className="w-full glass-card rounded-full h-4 overflow-hidden">
                   <div 
-                    className="bg-gradient-to-r from-orange-500 to-amber-500 h-2 rounded-full transition-all duration-1000"
+                    className={`bg-gradient-to-r ${skill.color === 'blue' ? 'from-glass-blue to-glass-purple' : skill.color === 'green' ? 'from-glass-green to-glass-blue' : 'from-glass-purple to-glass-blue'} h-4 rounded-full transition-all duration-1000 ${skill.color === 'green' ? 'glow-green' : 'glow-accent'}`}
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
@@ -270,64 +304,72 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Let's <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Connect</span>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
+              Let's <span className="text-gradient-accent">Connect</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               Available for freelance projects and full-time opportunities
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
+          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+            <div className="space-y-8">
+              <h3 className="text-3xl font-bold text-glass-text mb-8">Get in Touch</h3>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {[
-                  { icon: "✉", label: "Email", value: "Available on request" },
-                  { icon: "📞", label: "Phone", value: "Available on request" },
-                  { icon: "📍", label: "Location", value: "Bangalore, India" },
-                  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha" }
+                  { icon: "✉", label: "Email", value: "Available on request", color: "blue" },
+                  { icon: "📞", label: "Phone", value: "Available on request", color: "green" },
+                  { icon: "📍", label: "Location", value: "Bangalore, India", color: "purple" },
+                  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", color: "blue" }
                 ].map((contact, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-lg bg-gray-800/30 border border-orange-500/10">
-                    <div className="text-orange-500 text-xl">{contact.icon}</div>
-                    <div>
-                      <div className="text-gray-400 text-sm">{contact.label}</div>
-                      <div className="text-white">{contact.value}</div>
+                  <div key={index} className="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <div className="flex items-center gap-6">
+                      <div className={`text-3xl ${getColorClasses(contact.color).split(' ')[3]}`}>
+                        {contact.icon}
+                      </div>
+                      <div>
+                        <div className="text-glass-muted text-sm uppercase tracking-wide mb-1">{contact.label}</div>
+                        <div className="text-glass-text text-lg font-medium">{contact.value}</div>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-white mb-6">Follow My Work</h3>
+            <div className="space-y-8">
+              <h3 className="text-3xl font-bold text-glass-text mb-8">Follow My Work</h3>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-6">
                 {[
-                  { icon: "🎨", label: "Behance", url: "behance.net/ashutoshsinha1" },
-                  { icon: "💻", label: "GitHub", url: "github.com/ashutosh" },
-                  { icon: "💼", label: "LinkedIn", url: "linkedin.com/in/ashutoshsinha" },
-                  { icon: "✉", label: "Email", url: "Contact me" }
+                  { icon: "🎨", label: "Behance", url: "behance.net/ashutoshsinha1", color: "blue" },
+                  { icon: "💻", label: "GitHub", url: "github.com/ashutosh", color: "green" },
+                  { icon: "💼", label: "LinkedIn", url: "linkedin.com/in/ashutoshsinha", color: "purple" },
+                  { icon: "✉", label: "Email", url: "Contact me", color: "blue" }
                 ].map((social, index) => (
                   <button
                     key={index}
-                    className="h-auto p-4 flex flex-col items-center gap-3 border border-orange-500/20 rounded-lg hover:border-orange-500 hover:bg-orange-500/10 transition-all"
+                    className="glass-card p-6 rounded-2xl hover:scale-105 transition-all group"
                   >
-                    <div className="text-orange-500 text-2xl">{social.icon}</div>
-                    <div className="text-center">
-                      <div className="text-white font-medium text-sm">{social.label}</div>
-                      <div className="text-gray-400 text-xs">{social.url}</div>
+                    <div className="flex flex-col items-center gap-4">
+                      <div className={`text-4xl ${getColorClasses(social.color).split(' ')[3]} group-hover:scale-110 transition-transform`}>
+                        {social.icon}
+                      </div>
+                      <div className="text-center">
+                        <div className="text-glass-text font-bold text-lg">{social.label}</div>
+                        <div className="text-glass-muted text-sm">{social.url}</div>
+                      </div>
                     </div>
                   </button>
                 ))}
               </div>
 
-              <div className="mt-8">
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-gray-900 font-semibold py-3 rounded-full transition-colors">
+              <div className="mt-12">
+                <button className="w-full bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg">
                   Download Portfolio CV
                 </button>
               </div>
@@ -337,9 +379,9 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-orange-500/20">
+      <footer className="py-12 px-4 border-t border-glass-border/20">
         <div className="container mx-auto text-center">
-          <p className="text-gray-400">
+          <p className="text-glass-muted text-lg">
             © 2024 Ashutosh Sinha. Designed with passion in Bangalore, India.
           </p>
         </div>
