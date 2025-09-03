@@ -164,8 +164,13 @@ export default function Index() {
             <div className="relative">
               <div className="w-80 h-80 lg:w-[28rem] lg:h-[28rem] glass-card rounded-[3rem] flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-glass-blue/20 via-glass-purple/10 to-glass-green/20"></div>
-                <div className="relative z-10 text-6xl lg:text-8xl font-black text-gradient-accent">
-                  AS
+                <div className="relative z-10 w-64 h-64 lg:w-80 lg:h-80">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fa4aefdb2c86f46308d02098427ded9d2?format=webp&width=800"
+                    alt="Ashutosh Sinha"
+                    className="w-full h-full object-cover rounded-3xl border-4 border-white/20 shadow-2xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-glass-dark/30 via-transparent to-transparent rounded-3xl"></div>
                 </div>
                 <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-glass-green to-glass-blue rounded-full flex items-center justify-center animate-pulse glow-green">
                   <span className="text-white text-3xl">🎨</span>
