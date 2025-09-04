@@ -3,47 +3,56 @@ import { useState } from "react";
 const projects = [
   {
     title: "Seekho App UX Case Study",
-    description: "Comprehensive analysis and redesign to improve user engagement and functionality",
+    description:
+      "Comprehensive analysis and redesign to improve user engagement and functionality",
     tags: ["UX Research", "Mobile App", "Education"],
     color: "blue",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3",
-    url: "https://medium.com/@ashusinha543/seekho-app-ux-case-study-c65401c26380"
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3",
+    url: "https://medium.com/@ashusinha543/seekho-app-ux-case-study-c65401c26380",
   },
   {
     title: "Swish Redesign Case Study",
-    description: "Platform revamp focusing on enhanced user experience and interface design",
+    description:
+      "Platform revamp focusing on enhanced user experience and interface design",
     tags: ["Web Design", "Fintech", "UI/UX"],
     color: "green",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2",
-    url: "https://medium.com/@ashusinha543/swish-app-ux-case-study-807d788b7141"
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2",
+    url: "https://medium.com/@ashusinha543/swish-app-ux-case-study-807d788b7141",
   },
   {
     title: "Think41 Website Redesign",
     description: "Interactive landing page providing seamless user experience",
     tags: ["Web Design", "Landing Page", "B2B"],
     color: "purple",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F33b4ca4a9bd649caac069be599d5c37e"
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F33b4ca4a9bd649caac069be599d5c37e",
   },
   {
     title: "Giva App Redesign",
-    description: "Profile and landing page redesign improving user interaction and aesthetics",
+    description:
+      "Profile and landing page redesign improving user interaction and aesthetics",
     tags: ["Mobile App", "E-commerce", "Fashion"],
     color: "blue",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F528fa2b04788485586d4a38752a51ea7"
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F528fa2b04788485586d4a38752a51ea7",
   },
   {
     title: "XO Music App UI Design",
-    description: "Music app interface inspired by The Weeknd's theme with immersive UX",
+    description:
+      "Music app interface inspired by The Weeknd's theme with immersive UX",
     tags: ["Music App", "Dark Theme", "Entertainment"],
     color: "green",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F8132c335618a451b821cf7c0c23304ba"
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F8132c335618a451b821cf7c0c23304ba",
   },
   {
     title: "Kano Analysis for Taste My Plate",
     description: "User needs analysis to inform design decisions for food app",
     tags: ["UX Research", "Food App", "Analytics"],
-    color: "purple"
-  }
+    color: "purple",
+  },
 ];
 
 const skills = [
@@ -52,19 +61,19 @@ const skills = [
   { name: "UX Research", level: 88, color: "purple" },
   { name: "Prototyping", level: 92, color: "blue" },
   { name: "Design Systems", level: 85, color: "green" },
-  { name: "User Testing", level: 87, color: "purple" }
+  { name: "User Testing", level: 87, color: "purple" },
 ];
 
 const getColorClasses = (color: string) => {
   switch (color) {
-    case 'blue':
-      return 'from-glass-blue/20 to-glass-blue/5 border-glass-blue/30 text-glass-blue';
-    case 'green':
-      return 'from-glass-green/20 to-glass-green/5 border-glass-green/30 text-glass-green';
-    case 'purple':
-      return 'from-glass-purple/20 to-glass-purple/5 border-glass-purple/30 text-glass-purple';
+    case "blue":
+      return "from-glass-blue/20 to-glass-blue/5 border-glass-blue/30 text-glass-blue";
+    case "green":
+      return "from-glass-green/20 to-glass-green/5 border-glass-green/30 text-glass-green";
+    case "purple":
+      return "from-glass-purple/20 to-glass-purple/5 border-glass-purple/30 text-glass-purple";
     default:
-      return 'from-glass-accent/20 to-glass-accent/5 border-glass-accent/30 text-glass-accent';
+      return "from-glass-accent/20 to-glass-accent/5 border-glass-accent/30 text-glass-accent";
   }
 };
 
@@ -96,14 +105,14 @@ export default function Index() {
             { id: "about", label: "About" },
             { id: "projects", label: "Projects" },
             { id: "skills", label: "Skills" },
-            { id: "contact", label: "Contact" }
+            { id: "contact", label: "Contact" },
           ].map((nav) => (
             <button
               key={nav.id}
               onClick={() => scrollToSection(nav.id)}
               className={`px-6 py-3 rounded-full transition-all text-sm font-medium relative overflow-hidden ${
-                activeSection === nav.id 
-                  ? "bg-glass-accent text-white shadow-lg glow-accent" 
+                activeSection === nav.id
+                  ? "bg-glass-accent text-white shadow-lg glow-accent"
                   : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
               }`}
             >
@@ -117,7 +126,10 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-4 relative">
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center px-4 relative"
+      >
         <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="space-y-8">
             <div className="flex items-center gap-3">
@@ -133,7 +145,8 @@ export default function Index() {
                 Ashutosh Sinha
               </h1>
               <p className="text-xl lg:text-2xl text-glass-muted leading-relaxed max-w-lg font-light">
-                Crafting user-centric designs that enhance product experiences for modern digital platforms.
+                Crafting user-centric designs that enhance product experiences
+                for modern digital platforms.
               </p>
             </div>
 
@@ -142,12 +155,17 @@ export default function Index() {
                 { icon: "✉", label: "Email", value: "Contact available" },
                 { icon: "📞", label: "Phone", value: "Phone available" },
                 { icon: "💼", label: "LinkedIn", value: "ashutoshsinha" },
-                { icon: "📍", label: "Location", value: "Bangalore, India" }
+                { icon: "📍", label: "Location", value: "Bangalore, India" },
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3 text-glass-muted">
+                <div
+                  key={index}
+                  className="flex items-center gap-3 text-glass-muted"
+                >
                   <span className="text-glass-accent text-lg">{item.icon}</span>
                   <div>
-                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide">{item.label}</div>
+                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide">
+                      {item.label}
+                    </div>
                     <div className="text-sm font-medium">{item.value}</div>
                   </div>
                 </div>
@@ -158,7 +176,7 @@ export default function Index() {
               <button className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl">
                 Download CV
               </button>
-              <button 
+              <button
                 className="glass-card text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl transition-all hover:scale-105"
                 onClick={() => scrollToSection("contact")}
               >
@@ -196,9 +214,11 @@ export default function Index() {
               About <span className="text-gradient-spotify">Me</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
-              I'm a freelance Product and Motion Designer based in Bangalore, specializing in creating 
-              user-centric designs that enhance product experiences. With expertise in UX research, 
-              prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
+              I'm a freelance Product and Motion Designer based in Bangalore,
+              specializing in creating user-centric designs that enhance product
+              experiences. With expertise in UX research, prototyping, and
+              design systems, I help fast-moving teams build scalable and
+              intuitive digital products.
             </p>
           </div>
 
@@ -207,26 +227,38 @@ export default function Index() {
               {
                 icon: "📱",
                 title: "Mobile-First Design",
-                description: "Crafting responsive experiences that work seamlessly across all devices",
-                color: "blue"
+                description:
+                  "Crafting responsive experiences that work seamlessly across all devices",
+                color: "blue",
               },
               {
                 icon: "⚡",
                 title: "Fast Prototyping",
-                description: "Rapid iteration and testing to validate ideas and improve user experience",
-                color: "green"
+                description:
+                  "Rapid iteration and testing to validate ideas and improve user experience",
+                color: "green",
               },
               {
                 icon: "👥",
                 title: "User-Centered",
-                description: "Deep user research and testing to create meaningful digital experiences",
-                color: "purple"
-              }
+                description:
+                  "Deep user research and testing to create meaningful digital experiences",
+                color: "purple",
+              },
             ].map((item, index) => (
-              <div key={index} className="glass-card p-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
-                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-                <h3 className="text-2xl font-bold text-glass-text mb-4">{item.title}</h3>
-                <p className="text-glass-muted leading-relaxed">{item.description}</p>
+              <div
+                key={index}
+                className="glass-card p-8 rounded-3xl hover:scale-105 transition-all duration-300 group"
+              >
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-glass-text mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-glass-muted leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -241,25 +273,37 @@ export default function Index() {
               Featured <span className="text-gradient-accent">Projects</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
-              A showcase of my recent work in product design, UX research, and motion design
+              A showcase of my recent work in product design, UX research, and
+              motion design
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group">
-                <div className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(' ')[0]} ${getColorClasses(project.color).split(' ')[1]} relative overflow-hidden`}>
+              <div
+                key={index}
+                className="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group"
+              >
+                <div
+                  className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(" ")[0]} ${getColorClasses(project.color).split(" ")[1]} relative overflow-hidden`}
+                >
                   <div
                     className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center"
-                    style={project.image ? {
-                      backgroundImage: `url(${project.image})`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      backgroundSize: 'cover'
-                    } : {}}
+                    style={
+                      project.image
+                        ? {
+                            backgroundImage: `url(${project.image})`,
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "center",
+                            backgroundSize: "cover",
+                          }
+                        : {}
+                    }
                   >
                     {!project.image && (
-                      <div className={`${getColorClasses(project.color).split(' ')[3]} text-3xl font-black`}>
+                      <div
+                        className={`${getColorClasses(project.color).split(" ")[3]} text-3xl font-black`}
+                      >
                         {index + 1}
                       </div>
                     )}
@@ -274,8 +318,8 @@ export default function Index() {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, tagIndex) => (
-                      <span 
-                        key={tagIndex} 
+                      <span
+                        key={tagIndex}
                         className={`bg-gradient-to-r ${getColorClasses(project.color)} border backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium`}
                       >
                         {tag}
@@ -287,12 +331,14 @@ export default function Index() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${getColorClasses(project.color).split(' ')[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium inline-block`}
+                      className={`${getColorClasses(project.color).split(" ")[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium inline-block`}
                     >
                       View Case Study →
                     </a>
                   ) : (
-                    <button className={`${getColorClasses(project.color).split(' ')[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium`}>
+                    <button
+                      className={`${getColorClasses(project.color).split(" ")[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium`}
+                    >
                       View Case Study →
                     </button>
                   )}
@@ -319,14 +365,18 @@ export default function Index() {
             {skills.map((skill, index) => (
               <div key={index} className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-glass-text">{skill.name}</span>
-                  <span className={`text-xl font-black ${getColorClasses(skill.color).split(' ')[3]}`}>
+                  <span className="text-2xl font-bold text-glass-text">
+                    {skill.name}
+                  </span>
+                  <span
+                    className={`text-xl font-black ${getColorClasses(skill.color).split(" ")[3]}`}
+                  >
                     {skill.level}%
                   </span>
                 </div>
                 <div className="w-full glass-card rounded-full h-4 overflow-hidden">
-                  <div 
-                    className={`bg-gradient-to-r ${skill.color === 'blue' ? 'from-glass-blue to-glass-purple' : skill.color === 'green' ? 'from-glass-green to-glass-blue' : 'from-glass-purple to-glass-blue'} h-4 rounded-full transition-all duration-1000 ${skill.color === 'green' ? 'glow-green' : 'glow-accent'}`}
+                  <div
+                    className={`bg-gradient-to-r ${skill.color === "blue" ? "from-glass-blue to-glass-purple" : skill.color === "green" ? "from-glass-green to-glass-blue" : "from-glass-purple to-glass-blue"} h-4 rounded-full transition-all duration-1000 ${skill.color === "green" ? "glow-green" : "glow-accent"}`}
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
@@ -350,23 +400,54 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
             <div className="space-y-8">
-              <h3 className="text-3xl font-bold text-glass-text mb-8">Get in Touch</h3>
-              
+              <h3 className="text-3xl font-bold text-glass-text mb-8">
+                Get in Touch
+              </h3>
+
               <div className="space-y-6">
                 {[
-                  { icon: "✉", label: "Email", value: "Available on request", color: "blue" },
-                  { icon: "📞", label: "Phone", value: "Available on request", color: "green" },
-                  { icon: "📍", label: "Location", value: "Bangalore, India", color: "purple" },
-                  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", color: "blue" }
+                  {
+                    icon: "✉",
+                    label: "Email",
+                    value: "Available on request",
+                    color: "blue",
+                  },
+                  {
+                    icon: "📞",
+                    label: "Phone",
+                    value: "Available on request",
+                    color: "green",
+                  },
+                  {
+                    icon: "📍",
+                    label: "Location",
+                    value: "Bangalore, India",
+                    color: "purple",
+                  },
+                  {
+                    icon: "💼",
+                    label: "LinkedIn",
+                    value: "linkedin.com/in/ashutoshsinha",
+                    color: "blue",
+                  },
                 ].map((contact, index) => (
-                  <div key={index} className="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                  <div
+                    key={index}
+                    className="glass-card p-6 rounded-2xl hover:scale-105 transition-all"
+                  >
                     <div className="flex items-center gap-6">
-                      <div className={`text-3xl ${getColorClasses(contact.color).split(' ')[3]}`}>
+                      <div
+                        className={`text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}
+                      >
                         {contact.icon}
                       </div>
                       <div>
-                        <div className="text-glass-muted text-sm uppercase tracking-wide mb-1">{contact.label}</div>
-                        <div className="text-glass-text text-lg font-medium">{contact.value}</div>
+                        <div className="text-glass-muted text-sm uppercase tracking-wide mb-1">
+                          {contact.label}
+                        </div>
+                        <div className="text-glass-text text-lg font-medium">
+                          {contact.value}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -375,26 +456,54 @@ export default function Index() {
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-3xl font-bold text-glass-text mb-8">Follow My Work</h3>
-              
+              <h3 className="text-3xl font-bold text-glass-text mb-8">
+                Follow My Work
+              </h3>
+
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { icon: "🎨", label: "Behance", url: "behance.net/ashutoshsinha1", color: "blue" },
-                  { icon: "💻", label: "GitHub", url: "github.com/ashutosh", color: "green" },
-                  { icon: "💼", label: "LinkedIn", url: "linkedin.com/in/ashutoshsinha", color: "purple" },
-                  { icon: "✉", label: "Email", url: "Contact me", color: "blue" }
+                  {
+                    icon: "🎨",
+                    label: "Behance",
+                    url: "behance.net/ashutoshsinha1",
+                    color: "blue",
+                  },
+                  {
+                    icon: "💻",
+                    label: "GitHub",
+                    url: "github.com/ashutosh",
+                    color: "green",
+                  },
+                  {
+                    icon: "💼",
+                    label: "LinkedIn",
+                    url: "linkedin.com/in/ashutoshsinha",
+                    color: "purple",
+                  },
+                  {
+                    icon: "✉",
+                    label: "Email",
+                    url: "Contact me",
+                    color: "blue",
+                  },
                 ].map((social, index) => (
                   <button
                     key={index}
                     className="glass-card p-6 rounded-2xl hover:scale-105 transition-all group"
                   >
                     <div className="flex flex-col items-center gap-4">
-                      <div className={`text-4xl ${getColorClasses(social.color).split(' ')[3]} group-hover:scale-110 transition-transform`}>
+                      <div
+                        className={`text-4xl ${getColorClasses(social.color).split(" ")[3]} group-hover:scale-110 transition-transform`}
+                      >
                         {social.icon}
                       </div>
                       <div className="text-center">
-                        <div className="text-glass-text font-bold text-lg">{social.label}</div>
-                        <div className="text-glass-muted text-sm">{social.url}</div>
+                        <div className="text-glass-text font-bold text-lg">
+                          {social.label}
+                        </div>
+                        <div className="text-glass-muted text-sm">
+                          {social.url}
+                        </div>
                       </div>
                     </div>
                   </button>
