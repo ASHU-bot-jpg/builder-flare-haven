@@ -6,7 +6,8 @@ const projects = [
     description: "Comprehensive analysis and redesign to improve user engagement and functionality",
     tags: ["UX Research", "Mobile App", "Education"],
     color: "blue",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3"
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3",
+    url: "https://medium.com/@ashusinha543/seekho-app-ux-case-study-c65401c26380"
   },
   {
     title: "Swish Redesign Case Study",
