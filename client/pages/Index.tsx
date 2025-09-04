@@ -14,7 +14,8 @@ const projects = [
     description: "Platform revamp focusing on enhanced user experience and interface design",
     tags: ["Web Design", "Fintech", "UI/UX"],
     color: "green",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2"
+    image: "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2",
+    url: "https://medium.com/@ashusinha543/swish-app-ux-case-study-807d788b7141"
   },
   {
     title: "Think41 Website Redesign",
