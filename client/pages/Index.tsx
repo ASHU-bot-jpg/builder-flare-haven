@@ -281,9 +281,20 @@ export default function Index() {
                       </span>
                     ))}
                   </div>
-                  <button className={`${getColorClasses(project.color).split(' ')[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium`}>
-                    View Case Study →
-                  </button>
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${getColorClasses(project.color).split(' ')[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium inline-block`}
+                    >
+                      View Case Study →
+                    </a>
+                  ) : (
+                    <button className={`${getColorClasses(project.color).split(' ')[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium`}>
+                      View Case Study →
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
