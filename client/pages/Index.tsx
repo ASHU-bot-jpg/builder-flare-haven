@@ -93,7 +93,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-glass-dark relative overflow-hidden">
+    <div className="min-h-screen bg-glass-dark relative overflow-hidden pb-24 md:pb-28">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glass-blue/10 rounded-full blur-3xl"></div>
@@ -102,32 +102,27 @@ export default function Index() {
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="text-sm font-semibold tracking-widest text-glass-muted uppercase">
-            Ashutosh Sinha
-          </div>
-          <div className="flex gap-2">
-            {[
-              { id: "home", label: "Home" },
-              { id: "about", label: "About" },
-              { id: "projects", label: "Projects" },
-              { id: "skills", label: "Skills" },
-              { id: "contact", label: "Contact" },
-            ].map((nav) => (
-              <button
-                key={nav.id}
-                onClick={() => scrollToSection(nav.id)}
-                className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
-                  activeSection === nav.id
-                    ? "bg-glass-accent text-white glow-accent"
-                    : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
-                }`}
-              >
-                {nav.label}
-              </button>
-            ))}
-          </div>
+      <nav className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <div className="glass-nav rounded-full p-2 flex gap-2 shadow-2xl ring-1 ring-white/10">
+          {[
+            { id: "home", label: "Home" },
+            { id: "about", label: "About" },
+            { id: "projects", label: "Projects" },
+            { id: "skills", label: "Skills" },
+            { id: "contact", label: "Contact" },
+          ].map((nav) => (
+            <button
+              key={nav.id}
+              onClick={() => scrollToSection(nav.id)}
+              className={`px-5 py-3 rounded-full transition-all text-sm font-medium relative overflow-hidden ${
+                activeSection === nav.id
+                  ? "bg-glass-accent text-white shadow-lg glow-accent"
+                  : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
+              }`}
+            >
+              <span className="relative z-10">{nav.label}</span>
+            </button>
+          ))}
         </div>
       </nav>
 
