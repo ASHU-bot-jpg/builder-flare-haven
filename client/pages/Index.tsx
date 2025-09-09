@@ -216,12 +216,12 @@ export default function Index() {
                   key={index}
                   className="flex items-start gap-3 text-glass-muted min-w-0"
                 >
-                  <span className="text-glass-accent text-lg">{item.icon}</span>
+                  <span className="text-glass-accent text-lg w-6 h-6 flex items-center justify-center shrink-0">{item.icon}</span>
                   <div>
                     <div className="text-xs text-glass-muted/60 uppercase tracking-wide">
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium break-all">
+                    <div className="text-sm font-medium break-words">
                       {item.value}
                     </div>
                   </div>
