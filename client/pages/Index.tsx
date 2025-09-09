@@ -49,7 +49,8 @@ const projects = [
   },
   {
     title: "iCreative Learning",
-    description: "Interactive education platform and portfolio site showcasing learning resources",
+    description:
+      "Interactive education platform and portfolio site showcasing learning resources",
     tags: ["Web App", "Education", "Learning"],
     color: "purple",
     url: "https://icreativelearning.netlify.app/",
