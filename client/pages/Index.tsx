@@ -48,10 +48,11 @@ const projects = [
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F8132c335618a451b821cf7c0c23304ba",
   },
   {
-    title: "Kano Analysis for Taste My Plate",
-    description: "User needs analysis to inform design decisions for food app",
-    tags: ["UX Research", "Food App", "Analytics"],
+    title: "iCreative Learning",
+    description: "Interactive education platform and portfolio site showcasing learning resources",
+    tags: ["Web App", "Education", "Learning"],
     color: "purple",
+    url: "https://icreativelearning.netlify.app/",
   },
 ];
 
