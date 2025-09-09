@@ -487,7 +487,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto px-1 sm:px-2">
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto px-1 sm:px-2 place-items-center md:place-items-stretch">
             <div className="space-y-8">
               <h3 className="text-3xl font-bold text-glass-text mb-8">
                 Get in Touch
@@ -522,7 +522,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0"
+                    className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
                   >
                     <div className="flex items-center gap-6">
                       <div
@@ -549,7 +549,7 @@ export default function Index() {
                 Follow My Work
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center">
                 {[
                   {
                     icon: "🎨",
@@ -585,7 +585,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0"
+                    className="glass-card p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
