@@ -330,13 +330,13 @@ export default function Index() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group"
+                className="glass-card rounded-3xl overflow-hidden transition-all duration-300 group border border-white/10 hover:border-white/20 hover:-translate-y-1 hover:shadow-2xl"
               >
                 <div
                   className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(" ")[0]} ${getColorClasses(project.color).split(" ")[1]} relative overflow-hidden`}
                 >
                   <div
-                    className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center"
+                    className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500"
                     style={
                       project.image
                         ? {
@@ -368,7 +368,7 @@ export default function Index() {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className={`bg-gradient-to-r ${getColorClasses(project.color)} border backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium`}
+                        className={`bg-white/5 border border-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-text/90`}
                       >
                         {tag}
                       </span>
@@ -379,15 +379,21 @@ export default function Index() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${getColorClasses(project.color).split(" ")[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium inline-block`}
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-glass-text hover:bg-glass-accent hover:text-white transition-all"
                     >
-                      View Project →
+                      View Project
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
                     </a>
                   ) : (
                     <button
-                      className={`${getColorClasses(project.color).split(" ")[3]} hover:text-glass-text hover:bg-gradient-to-r hover:from-glass-blue hover:to-glass-purple px-6 py-3 rounded-xl transition-all font-medium`}
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-glass-text hover:bg-glass-accent hover:text-white transition-all"
                     >
-                      View Project →
+                      View Project
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
                     </button>
                   )}
                 </div>
