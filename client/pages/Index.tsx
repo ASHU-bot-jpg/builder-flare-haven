@@ -585,7 +585,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-6 rounded-2xl transition-all group sm:hover:scale-105"
+                    className="glass-card p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
