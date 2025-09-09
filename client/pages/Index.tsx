@@ -205,7 +205,11 @@ export default function Index() {
               {[
                 { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
                 { icon: "📞", label: "Phone", value: "On Request" },
-                { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha" },
+                {
+                  icon: "💼",
+                  label: "LinkedIn",
+                  value: "linkedin.com/in/ashutoshsinha",
+                },
                 { icon: "📍", label: "Location", value: "Bangalore, India" },
               ].map((item, index) => (
                 <div
