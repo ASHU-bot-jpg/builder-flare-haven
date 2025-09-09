@@ -201,7 +201,7 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full">
               {[
                 { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
                 { icon: "📞", label: "Phone", value: "On Request" },
@@ -214,14 +214,14 @@ export default function Index() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 text-glass-muted"
+                  className="flex items-start gap-3 text-glass-muted min-w-0"
                 >
                   <span className="text-glass-accent text-lg">{item.icon}</span>
                   <div>
                     <div className="text-xs text-glass-muted/60 uppercase tracking-wide">
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium">{item.value}</div>
+                    <div className="text-sm font-medium break-all">{item.value}</div>
                   </div>
                 </div>
               ))}
