@@ -127,22 +127,45 @@
   body {
     @apply bg-glass-dark text-glass-text font-inter antialiased;
     background:
-      radial-gradient(circle at 25% 25%, hsl(var(--glass-blue) / 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(var(--glass-purple) / 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 50% 0%, hsl(var(--glass-green) / 0.06) 0%, transparent 50%),
-      linear-gradient(135deg, hsl(var(--glass-dark)) 0%, hsl(var(--glass-surface)) 100%);
+      radial-gradient(
+        circle at 25% 25%,
+        hsl(var(--glass-blue) / 0.12) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        hsl(var(--glass-purple) / 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 50% 0%,
+        hsl(var(--glass-green) / 0.06) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        135deg,
+        hsl(var(--glass-dark)) 0%,
+        hsl(var(--glass-surface)) 100%
+      );
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold tracking-tight;
   }
 
   .glass-card {
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       hsla(var(--glass-surface), 0.8) 0%,
-      hsla(var(--glass-surface), 0.4) 100%);
+      hsla(var(--glass-surface), 0.4) 100%
+    );
     backdrop-filter: blur(20px);
     border: 1px solid hsla(var(--glass-border), 0.2);
     box-shadow:
@@ -151,9 +174,11 @@
   }
 
   .glass-nav {
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       hsla(var(--glass-surface), 0.9) 0%,
-      hsla(var(--glass-surface), 0.6) 100%);
+      hsla(var(--glass-surface), 0.6) 100%
+    );
     backdrop-filter: blur(40px);
     border: 1px solid hsla(var(--glass-border), 0.3);
     box-shadow:
@@ -162,19 +187,23 @@
   }
 
   .text-gradient-accent {
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       hsl(var(--glass-blue)) 0%,
       hsl(var(--glass-purple)) 50%,
-      hsl(var(--glass-green)) 100%);
+      hsl(var(--glass-green)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-spotify {
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       hsl(var(--glass-green)) 0%,
-      hsl(var(--glass-blue)) 100%);
+      hsl(var(--glass-blue)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
