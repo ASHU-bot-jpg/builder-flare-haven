@@ -522,7 +522,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-6 rounded-2xl hover:scale-105 transition-all"
+                    className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105"
                   >
                     <div className="flex items-center gap-6">
                       <div
@@ -549,7 +549,7 @@ export default function Index() {
                 Follow My Work
               </h3>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {[
                   {
                     icon: "🎨",
@@ -606,7 +606,7 @@ export default function Index() {
                 ))}
               </div>
 
-              <div className="mt-12">
+              <div className="mt-12 mb-24 sm:mb-0">
                 <a
                   href="https://drive.google.com/file/d/1IFnsUThOEGWpkiSpedOn00sWE2TNqZKp/view"
                   target="_blank"
