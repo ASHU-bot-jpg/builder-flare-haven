@@ -52,15 +52,15 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Glassmorphism design variables */
-    --glass-dark: 220 13% 9%;
-    --glass-surface: 220 13% 15%;
-    --glass-border: 220 13% 25%;
+    --glass-dark: 222 12% 10%;
+    --glass-surface: 222 12% 16%;
+    --glass-border: 222 12% 26%;
     --glass-text: 0 0% 98%;
     --glass-muted: 220 9% 65%;
-    --glass-accent: 217 91% 60%;
-    --glass-green: 142 76% 36%;
-    --glass-blue: 212 100% 48%;
-    --glass-purple: 250 84% 54%;
+    --glass-accent: 258 90% 64%;
+    --glass-green: 170 84% 40%;
+    --glass-blue: 198 94% 48%;
+    --glass-purple: 264 88% 62%;
   }
 
   .dark {
@@ -121,16 +121,18 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-glass-dark text-glass-text font-inter antialiased;
     background:
-      radial-gradient(circle at 25% 25%, hsl(var(--glass-blue) / 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(var(--glass-purple) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 50% 0%, hsl(var(--glass-green) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 25% 25%, hsl(var(--glass-blue) / 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--glass-purple) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 0%, hsl(var(--glass-green) / 0.06) 0%, transparent 50%),
       linear-gradient(135deg, hsl(var(--glass-dark)) 0%, hsl(var(--glass-surface)) 100%);
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
