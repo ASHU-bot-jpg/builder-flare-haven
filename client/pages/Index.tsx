@@ -487,7 +487,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto px-1 sm:px-2">
             <div className="space-y-8">
               <h3 className="text-3xl font-bold text-glass-text mb-8">
                 Get in Touch
