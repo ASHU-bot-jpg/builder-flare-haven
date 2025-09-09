@@ -522,7 +522,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105"
+                    className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible"
                   >
                     <div className="flex items-center gap-6">
                       <div
@@ -585,7 +585,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-6 rounded-2xl hover:scale-105 transition-all group"
+                    className="glass-card p-6 rounded-2xl transition-all group sm:hover:scale-105"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
