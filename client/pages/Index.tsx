@@ -181,27 +181,27 @@ export default function Index() {
         id="home"
         className="min-h-screen flex items-center justify-center px-4 relative"
       >
-        <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-          <div className="space-y-8">
-            <div className="flex items-center gap-3">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+          <div className="space-y-8 text-center lg:text-left">
+            <div className="flex items-center gap-3 justify-center lg:justify-start">
               <div className="w-3 h-3 bg-glass-green rounded-full animate-pulse"></div>
               <span className="text-glass-muted font-medium">Open to work</span>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-glass-accent font-bold text-lg tracking-[0.2em] uppercase">
+              <h2 className="text-glass-accent font-bold text-sm sm:text-base lg:text-lg tracking-[0.2em] uppercase">
                 PRODUCT & MOTION DESIGNER
               </h2>
-              <h1 className="text-6xl lg:text-8xl font-black text-glass-text leading-[0.9] tracking-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-glass-text leading-[0.9] tracking-tight">
                 Ashutosh Sinha
               </h1>
-              <p className="text-xl lg:text-2xl text-glass-muted leading-relaxed max-w-lg font-light">
+              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-lg font-light">
                 Crafting user-centric designs that enhance product experiences
                 for modern digital platforms.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 pt-8">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-8">
               {[
                 { icon: "✉", label: "Email", value: "Contact available" },
                 { icon: "📞", label: "Phone", value: "Phone available" },
@@ -223,7 +223,7 @@ export default function Index() {
               ))}
             </div>
 
-            <div className="flex gap-4 pt-8">
+            <div className="flex gap-4 pt-8 justify-center lg:justify-start">
               <button className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl">
                 Download CV
               </button>
@@ -238,7 +238,7 @@ export default function Index() {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 lg:w-[28rem] lg:h-[28rem] glass-card rounded-[3rem] flex items-center justify-center relative overflow-hidden">
+              <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-[28rem] lg:h-[28rem] glass-card rounded-[3rem] flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-glass-blue/20 via-glass-purple/10 to-glass-green/20"></div>
                 <div className="relative z-10 w-64 h-64 lg:w-80 lg:h-80">
                   <img
