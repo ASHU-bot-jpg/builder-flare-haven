@@ -203,9 +203,9 @@ export default function Index() {
 
             <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-8">
               {[
-                { icon: "✉", label: "Email", value: "Contact available" },
-                { icon: "📞", label: "Phone", value: "Phone available" },
-                { icon: "💼", label: "LinkedIn", value: "ashutoshsinha" },
+                { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
+                { icon: "📞", label: "Phone", value: "On Request" },
+                { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha" },
                 { icon: "📍", label: "Location", value: "Bangalore, India" },
               ].map((item, index) => (
                 <div
@@ -224,15 +224,22 @@ export default function Index() {
             </div>
 
             <div className="flex gap-4 pt-8 justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl">
+              <a
+                href="https://drive.google.com/file/d/1IFnsUThOEGWpkiSpedOn00sWE2TNqZKp/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl"
+              >
                 Download CV
-              </button>
-              <button
+              </a>
+              <a
+                href="https://mail.google.com/mail/u/0/#inbox"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-card text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl transition-all hover:scale-105"
-                onClick={() => scrollToSection("contact")}
               >
                 Get in Touch
-              </button>
+              </a>
             </div>
           </div>
 
@@ -540,29 +547,36 @@ export default function Index() {
                     icon: "🎨",
                     label: "Behance",
                     url: "behance.net/ashutoshsinha1",
+                    link: "https://www.behance.net/ashutoshsinha1",
                     color: "blue",
                   },
                   {
                     icon: "💻",
                     label: "GitHub",
                     url: "github.com/ashutosh",
+                    link: "https://github.com/ashutosh",
                     color: "green",
                   },
                   {
                     icon: "💼",
                     label: "LinkedIn",
                     url: "linkedin.com/in/ashutoshsinha",
+                    link: "https://www.linkedin.com/in/ashutoshsinha/",
                     color: "purple",
                   },
                   {
                     icon: "✉",
                     label: "Email",
                     url: "Contact me",
+                    link: "https://mail.google.com/mail/u/0/#inbox",
                     color: "blue",
                   },
                 ].map((social, index) => (
-                  <button
+                  <a
                     key={index}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass-card p-6 rounded-2xl hover:scale-105 transition-all group"
                   >
                     <div className="flex flex-col items-center gap-4">
@@ -580,14 +594,19 @@ export default function Index() {
                         </div>
                       </div>
                     </div>
-                  </button>
+                  </a>
                 ))}
               </div>
 
               <div className="mt-12">
-                <button className="w-full bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg">
+                <a
+                  href="https://drive.google.com/file/d/1IFnsUThOEGWpkiSpedOn00sWE2TNqZKp/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
+                >
                   Download Portfolio CV
-                </button>
+                </a>
               </div>
             </div>
           </div>
