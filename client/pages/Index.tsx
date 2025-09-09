@@ -483,13 +483,13 @@ export default function Index() {
                   {
                     icon: "✉",
                     label: "Email",
-                    value: "Available on request",
+                    value: "ashusinha543@gmail.com",
                     color: "blue",
                   },
                   {
                     icon: "📞",
                     label: "Phone",
-                    value: "Available on request",
+                    value: "On Request",
                     color: "green",
                   },
                   {
