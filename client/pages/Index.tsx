@@ -102,30 +102,32 @@ export default function Index() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="glass-nav rounded-full p-2 flex gap-2">
-          {[
-            { id: "home", label: "Home" },
-            { id: "about", label: "About" },
-            { id: "projects", label: "Projects" },
-            { id: "skills", label: "Skills" },
-            { id: "contact", label: "Contact" },
-          ].map((nav) => (
-            <button
-              key={nav.id}
-              onClick={() => scrollToSection(nav.id)}
-              className={`px-6 py-3 rounded-full transition-all text-sm font-medium relative overflow-hidden ${
-                activeSection === nav.id
-                  ? "bg-glass-accent text-white shadow-lg glow-accent"
-                  : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
-              }`}
-            >
-              {activeSection === nav.id && (
-                <div className="absolute inset-0 bg-gradient-to-r from-glass-blue to-glass-purple opacity-80 rounded-full"></div>
-              )}
-              <span className="relative z-10">{nav.label}</span>
-            </button>
-          ))}
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="text-sm font-semibold tracking-widest text-glass-muted uppercase">
+            Ashutosh Sinha
+          </div>
+          <div className="flex gap-2">
+            {[
+              { id: "home", label: "Home" },
+              { id: "about", label: "About" },
+              { id: "projects", label: "Projects" },
+              { id: "skills", label: "Skills" },
+              { id: "contact", label: "Contact" },
+            ].map((nav) => (
+              <button
+                key={nav.id}
+                onClick={() => scrollToSection(nav.id)}
+                className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
+                  activeSection === nav.id
+                    ? "bg-glass-accent text-white glow-accent"
+                    : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
+                }`}
+              >
+                {nav.label}
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
 
@@ -200,9 +202,6 @@ export default function Index() {
                     className="w-full h-full object-cover rounded-3xl border-4 border-white/20 shadow-2xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-glass-dark/30 via-transparent to-transparent rounded-3xl"></div>
-                </div>
-                <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-glass-green to-glass-blue rounded-full flex items-center justify-center animate-pulse glow-green">
-                  <span className="text-white text-3xl">🎨</span>
                 </div>
               </div>
             </div>
