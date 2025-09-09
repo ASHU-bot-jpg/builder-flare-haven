@@ -201,7 +201,7 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full text-left">
               {[
                 { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
                 { icon: "📞", label: "Phone", value: "On Request" },
@@ -220,10 +220,10 @@ export default function Index() {
                     {item.icon}
                   </span>
                   <div>
-                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide">
+                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide text-left">
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium break-words">
+                    <div className="text-sm font-medium break-words text-left">
                       {item.value}
                     </div>
                   </div>
