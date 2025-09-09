@@ -94,7 +94,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-glass-dark relative overflow-hidden pb-24 md:pb-28">
+    <div className="min-h-screen bg-glass-dark relative overflow-x-hidden pb-24 md:pb-28">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glass-blue/10 rounded-full blur-3xl"></div>
