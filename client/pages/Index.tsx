@@ -83,6 +83,7 @@ const getColorClasses = (color: string) => {
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -101,8 +102,57 @@ export default function Index() {
         <div className="absolute top-3/4 left-3/4 w-64 h-64 bg-glass-green/10 rounded-full blur-2xl"></div>
       </div>
 
-      {/* Navigation */}
-      <nav className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-50">
+      {/* Navigation - Mobile */}
+      <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
+        <div className="relative">
+          {isMobileMenuOpen && (
+            <div className="absolute bottom-14 left-1/2 -translate-x-1/2 glass-nav rounded-2xl p-2 flex flex-col gap-2 min-w-[12rem] items-stretch text-center">
+              {[
+                { id: "home", label: "Home" },
+                { id: "about", label: "About" },
+                { id: "projects", label: "Projects" },
+                { id: "skills", label: "Skills" },
+                { id: "contact", label: "Contact" },
+              ].map((nav) => (
+                <button
+                  key={nav.id}
+                  onClick={() => {
+                    scrollToSection(nav.id);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 rounded-xl transition-all text-sm font-medium ${
+                    activeSection === nav.id
+                      ? "bg-glass-accent text-white glow-accent"
+                      : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
+                  }`}
+                >
+                  {nav.label}
+                </button>
+              ))}
+            </div>
+          )}
+          <button
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-glass-accent text-white shadow-xl glow-accent"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      {/* Navigation - Desktop */}
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <div className="glass-nav rounded-full p-2 flex gap-2 shadow-2xl ring-1 ring-white/10">
           {[
             { id: "home", label: "Home" },
