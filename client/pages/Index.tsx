@@ -221,7 +221,9 @@ export default function Index() {
                     <div className="text-xs text-glass-muted/60 uppercase tracking-wide">
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium break-all">{item.value}</div>
+                    <div className="text-sm font-medium break-all">
+                      {item.value}
+                    </div>
                   </div>
                 </div>
               ))}
