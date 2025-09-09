@@ -53,6 +53,8 @@ const projects = [
       "Interactive education platform and portfolio site showcasing learning resources",
     tags: ["Web App", "Education", "Learning"],
     color: "purple",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fc1ade894307660928596a906407fdae8a8f7109f",
     url: "https://icreativelearning.netlify.app/",
   },
 ];
