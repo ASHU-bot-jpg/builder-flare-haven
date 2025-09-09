@@ -277,7 +277,7 @@ export default function Index() {
               About <span className="text-gradient-spotify">Me</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
-              I'm a freelance Product and Motion Designer based in Bangalore,
+              I'm a f Product and Motion Designer based in Bangalore,
               specializing in creating user-centric designs that enhance product
               experiences. With expertise in UX research, prototyping, and
               design systems, I help fast-moving teams build scalable and
