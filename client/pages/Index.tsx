@@ -179,7 +179,7 @@ export default function Index() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center px-4 relative"
+        className="min-h-screen flex items-center justify-center px-4 pt-8 pb-28 sm:pb-24 relative"
       >
         <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <div className="space-y-8 text-center lg:text-left">
@@ -189,10 +189,10 @@ export default function Index() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-glass-accent font-bold text-sm sm:text-base lg:text-lg tracking-[0.2em] uppercase">
+              <h2 className="text-glass-accent font-bold text-xs sm:text-sm lg:text-lg tracking-[0.2em] uppercase">
                 PRODUCT & MOTION DESIGNER
               </h2>
-              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-glass-text leading-[0.9] tracking-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-glass-text leading-[0.9] tracking-tight break-words">
                 Ashutosh Sinha
               </h1>
               <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-lg font-light">
