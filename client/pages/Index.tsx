@@ -544,6 +544,7 @@ export default function Index() {
                   </div>
                 ))
               )}
+              <div className="shrink-0 w-2 sm:w-0" />
             </div>
           </div>
         </div>
