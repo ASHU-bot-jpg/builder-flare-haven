@@ -597,7 +597,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto px-1 sm:px-2 place-items-center md:place-items-stretch">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-2 sm:px-4 place-items-center md:place-items-stretch">
             <div className="space-y-8 text-center md:text-left">
               <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">
                 Get in Touch
@@ -632,7 +632,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
+                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
                   >
                     <div className="flex items-center gap-6 justify-center md:justify-start">
                       <div
@@ -659,7 +659,7 @@ export default function Index() {
                 Follow My Work
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-2">
                 {[
                   {
                     icon: "🎨",
@@ -695,7 +695,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
+                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
@@ -721,7 +721,7 @@ export default function Index() {
                   href="https://drive.google.com/file/d/1IFnsUThOEGWpkiSpedOn00sWE2TNqZKp/view"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
+                  className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
                 >
                   Download Portfolio CV
                 </a>
