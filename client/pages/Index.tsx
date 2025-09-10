@@ -587,7 +587,7 @@ export default function Index() {
 
       {/* Contact Section */}
       <section id="contact" className="py-24 px-4 relative">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 sm:px-4">
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
               Let's <span className="text-gradient-accent">Connect</span>
