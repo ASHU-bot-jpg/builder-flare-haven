@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const projects = [
   {
@@ -59,6 +59,11 @@ const projects = [
   },
 ];
 
+// Motion videos (add your embed URLs here)
+const motionVideos: { title: string; embedUrl: string }[] = [
+  // Example: { title: "Showreel", embedUrl: "https://www.youtube.com/embed/VIDEO_ID" },
+];
+
 const skills = [
   { name: "Product Design", level: 95, color: "blue" },
   { name: "Motion Design", level: 90, color: "green" },
@@ -84,6 +89,24 @@ const getColorClasses = (color: string) => {
 export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [autoScroll, setAutoScroll] = useState(true);
+  const motionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    let raf = 0;
+    const step = () => {
+      const el = motionRef.current;
+      if (el && autoScroll && el.scrollWidth > el.clientWidth) {
+        el.scrollLeft += 0.6;
+        if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 1) {
+          el.scrollLeft = 0;
+        }
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [autoScroll]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -111,7 +134,8 @@ export default function Index() {
                 { id: "home", label: "Home" },
                 { id: "about", label: "About" },
                 { id: "projects", label: "Projects" },
-                { id: "skills", label: "Skills" },
+              { id: "motion", label: "Motion" },
+              { id: "skills", label: "Skills" },
                 { id: "contact", label: "Contact" },
               ].map((nav) => (
                 <button
@@ -158,6 +182,7 @@ export default function Index() {
             { id: "home", label: "Home" },
             { id: "about", label: "About" },
             { id: "projects", label: "Projects" },
+            { id: "motion", label: "Motion" },
             { id: "skills", label: "Skills" },
             { id: "contact", label: "Contact" },
           ].map((nav) => (
@@ -434,6 +459,53 @@ export default function Index() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Motion Graphics Section */}
+      <section id="motion" className="py-24 px-4 relative">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
+              Motion <span className="text-gradient-accent">Graphics</span>
+            </h2>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
+              A selection of motion design and micro-interactions.
+            </p>
+          </div>
+
+          <div
+            ref={motionRef}
+            className="no-scrollbar overflow-x-auto select-none"
+            onMouseEnter={() => setAutoScroll(false)}
+            onMouseLeave={() => setAutoScroll(true)}
+            onTouchStart={() => setAutoScroll(false)}
+            onTouchEnd={() => setAutoScroll(true)}
+          >
+            <div className="flex gap-6 px-1 sm:px-2 snap-x snap-mandatory">
+              {motionVideos.length === 0 ? (
+                <div className="mx-auto text-glass-muted">Add videos to the motionVideos array to display here.</div>
+              ) : (
+                motionVideos.concat(motionVideos).map((video, i) => (
+                  <div
+                    key={`${video.title}-${i}`}
+                    className="glass-card rounded-2xl p-2 min-w-[300px] sm:min-w-[420px] snap-start w-full max-w-md"
+                  >
+                    <div className="aspect-video rounded-xl overflow-hidden">
+                      <iframe
+                        src={video.embedUrl}
+                        title={video.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="px-3 py-3 text-center text-glass-text font-medium">{video.title}</div>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </section>
