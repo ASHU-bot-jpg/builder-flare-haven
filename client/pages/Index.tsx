@@ -597,7 +597,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-2 sm:px-4 place-items-center md:place-items-stretch">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 sm:px-6 place-items-center md:place-items-stretch">
             <div className="space-y-8 text-center md:text-left">
               <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">
                 Get in Touch
@@ -632,11 +632,11 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
+                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-2 md:mx-0"
                   >
                     <div className="flex items-center gap-6 justify-center md:justify-start">
                       <div
-                        className={`text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}
+                        className={`text-2xl sm:text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}
                       >
                         {contact.icon}
                       </div>
@@ -659,7 +659,7 @@ export default function Index() {
                 Follow My Work
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4">
                 {[
                   {
                     icon: "🎨",
@@ -695,19 +695,19 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
+                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-2 sm:mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
-                        className={`text-4xl ${getColorClasses(social.color).split(" ")[3]} group-hover:scale-110 transition-transform`}
+                        className={`text-3xl sm:text-4xl ${getColorClasses(social.color).split(" ")[3]} group-hover:scale-110 transition-transform`}
                       >
                         {social.icon}
                       </div>
                       <div className="text-center">
-                        <div className="text-glass-text font-bold text-lg">
+                        <div className="text-glass-text font-bold text-base sm:text-lg">
                           {social.label}
                         </div>
-                        <div className="text-glass-muted text-sm">
+                        <div className="text-glass-muted text-xs sm:text-sm">
                           {social.url}
                         </div>
                       </div>
