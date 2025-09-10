@@ -651,8 +651,8 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="space-y-8">
-              <h3 className="text-3xl font-bold text-glass-text mb-8">
+            <div className="space-y-8 text-center md:text-left">
+              <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">
                 Follow My Work
               </h3>
 
