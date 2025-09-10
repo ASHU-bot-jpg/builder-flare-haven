@@ -61,13 +61,34 @@ const projects = [
 
 // Motion videos (add your embed URLs here)
 const motionVideos: { title: string; embedUrl: string }[] = [
-  { title: "Motion Graphic 1", embedUrl: "https://player.vimeo.com/video/1117336115" },
-  { title: "Motion Graphic 2", embedUrl: "https://player.vimeo.com/video/1117336204" },
-  { title: "Motion Graphic 3", embedUrl: "https://player.vimeo.com/video/1117336359" },
-  { title: "Motion Graphic 4", embedUrl: "https://player.vimeo.com/video/1117336620" },
-  { title: "Motion Graphic 5", embedUrl: "https://player.vimeo.com/video/1117336683" },
-  { title: "Motion Graphic 6", embedUrl: "https://player.vimeo.com/video/1117336799" },
-  { title: "Motion Graphic 7", embedUrl: "https://player.vimeo.com/video/1117337188" },
+  {
+    title: "Motion Graphic 1",
+    embedUrl: "https://player.vimeo.com/video/1117336115",
+  },
+  {
+    title: "Motion Graphic 2",
+    embedUrl: "https://player.vimeo.com/video/1117336204",
+  },
+  {
+    title: "Motion Graphic 3",
+    embedUrl: "https://player.vimeo.com/video/1117336359",
+  },
+  {
+    title: "Motion Graphic 4",
+    embedUrl: "https://player.vimeo.com/video/1117336620",
+  },
+  {
+    title: "Motion Graphic 5",
+    embedUrl: "https://player.vimeo.com/video/1117336683",
+  },
+  {
+    title: "Motion Graphic 6",
+    embedUrl: "https://player.vimeo.com/video/1117336799",
+  },
+  {
+    title: "Motion Graphic 7",
+    embedUrl: "https://player.vimeo.com/video/1117337188",
+  },
 ];
 
 const skills = [
@@ -140,8 +161,8 @@ export default function Index() {
                 { id: "home", label: "Home" },
                 { id: "about", label: "About" },
                 { id: "projects", label: "Projects" },
-              { id: "motion", label: "Motion" },
-              { id: "skills", label: "Skills" },
+                { id: "motion", label: "Motion" },
+                { id: "skills", label: "Skills" },
                 { id: "contact", label: "Contact" },
               ].map((nav) => (
                 <button
@@ -491,7 +512,9 @@ export default function Index() {
           >
             <div className="flex gap-6 px-1 sm:px-2 snap-x snap-mandatory">
               {motionVideos.length === 0 ? (
-                <div className="mx-auto text-glass-muted">Add videos to the motionVideos array to display here.</div>
+                <div className="mx-auto text-glass-muted">
+                  Add videos to the motionVideos array to display here.
+                </div>
               ) : (
                 motionVideos.concat(motionVideos).map((video, i) => (
                   <div
@@ -507,7 +530,9 @@ export default function Index() {
                         allowFullScreen
                       />
                     </div>
-                    <div className="px-3 py-3 text-center text-glass-text font-medium">{video.title}</div>
+                    <div className="px-3 py-3 text-center text-glass-text font-medium">
+                      {video.title}
+                    </div>
                   </div>
                 ))
               )}
