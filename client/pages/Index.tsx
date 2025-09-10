@@ -527,7 +527,7 @@ export default function Index() {
                 motionVideos.concat(motionVideos).map((video, i) => (
                   <div
                     key={`${video.title}-${i}`}
-                    className="glass-card rounded-2xl p-2 min-w-[300px] sm:min-w-[420px] snap-start w-full max-w-md"
+                    className="glass-card rounded-2xl p-2 min-w-[260px] sm:min-w-[420px] snap-center w-full max-w-md"
                   >
                     <div className="aspect-video rounded-xl overflow-hidden">
                       <iframe
