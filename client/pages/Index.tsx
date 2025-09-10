@@ -595,8 +595,8 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto px-1 sm:px-2 place-items-center md:place-items-stretch">
-            <div className="space-y-8">
-              <h3 className="text-3xl font-bold text-glass-text mb-8">
+            <div className="space-y-8 text-center md:text-left">
+              <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">
                 Get in Touch
               </h3>
 
