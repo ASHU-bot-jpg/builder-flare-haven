@@ -634,7 +634,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-2 md:mx-0"
+                    className="bg-white/5 md:glass-card border border-white/10 md:border-0 shadow-sm md:shadow-none p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-2 md:mx-0"
                   >
                     <div className="flex items-center gap-6 justify-center md:justify-start">
                       <div
@@ -697,7 +697,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-2 sm:mx-auto"
+                    className="bg-white/5 md:glass-card border border-white/10 md:border-0 shadow-sm md:shadow-none p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-2 sm:mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
