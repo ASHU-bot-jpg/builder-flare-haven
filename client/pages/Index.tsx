@@ -61,7 +61,13 @@ const projects = [
 
 // Motion videos (add your embed URLs here)
 const motionVideos: { title: string; embedUrl: string }[] = [
-  // Example: { title: "Showreel", embedUrl: "https://www.youtube.com/embed/VIDEO_ID" },
+  { title: "Motion Graphic 1", embedUrl: "https://player.vimeo.com/video/1117336115" },
+  { title: "Motion Graphic 2", embedUrl: "https://player.vimeo.com/video/1117336204" },
+  { title: "Motion Graphic 3", embedUrl: "https://player.vimeo.com/video/1117336359" },
+  { title: "Motion Graphic 4", embedUrl: "https://player.vimeo.com/video/1117336620" },
+  { title: "Motion Graphic 5", embedUrl: "https://player.vimeo.com/video/1117336683" },
+  { title: "Motion Graphic 6", embedUrl: "https://player.vimeo.com/video/1117336799" },
+  { title: "Motion Graphic 7", embedUrl: "https://player.vimeo.com/video/1117337188" },
 ];
 
 const skills = [
