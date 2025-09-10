@@ -511,13 +511,14 @@ export default function Index() {
 
           <div
             ref={motionRef}
-            className="no-scrollbar overflow-x-auto select-none"
+            className="no-scrollbar overflow-x-auto select-none -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth"
             onMouseEnter={() => setAutoScroll(false)}
             onMouseLeave={() => setAutoScroll(true)}
             onTouchStart={() => setAutoScroll(false)}
             onTouchEnd={() => setAutoScroll(true)}
           >
-            <div className="flex gap-6 px-1 sm:px-2 snap-x snap-mandatory">
+            <div className="flex gap-4 sm:gap-6 snap-x snap-mandatory">
+              <div className="shrink-0 w-2 sm:w-0" />
               {motionVideos.length === 0 ? (
                 <div className="mx-auto text-glass-muted">
                   Add videos to the motionVideos array to display here.
