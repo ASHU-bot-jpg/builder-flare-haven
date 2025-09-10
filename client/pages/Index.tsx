@@ -38,6 +38,7 @@ const projects = [
     color: "blue",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F528fa2b04788485586d4a38752a51ea7",
+    url: "https://www.behance.net/gallery/211921171/Giva-App-profile-page-and-landing-page-redesign",
   },
   {
     title: "XO Music App UI Design",
