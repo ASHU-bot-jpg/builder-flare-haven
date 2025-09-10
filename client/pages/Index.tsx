@@ -631,17 +631,17 @@ export default function Index() {
                     key={index}
                     className="glass-card p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
                   >
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-6 justify-center md:justify-start">
                       <div
                         className={`text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}
                       >
                         {contact.icon}
                       </div>
                       <div>
-                        <div className="text-glass-muted text-sm uppercase tracking-wide mb-1">
+                        <div className="text-glass-muted text-sm uppercase tracking-wide mb-1 text-center md:text-left">
                           {contact.label}
                         </div>
-                        <div className="text-glass-text text-lg font-medium">
+                        <div className="text-glass-text text-lg font-medium text-center md:text-left">
                           {contact.value}
                         </div>
                       </div>
@@ -656,7 +656,7 @@ export default function Index() {
                 Follow My Work
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center">
                 {[
                   {
                     icon: "🎨",
