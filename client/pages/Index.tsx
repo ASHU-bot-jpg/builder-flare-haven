@@ -48,6 +48,7 @@ const projects = [
     color: "green",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F8132c335618a451b821cf7c0c23304ba",
+    url: "https://www.behance.net/gallery/211656933/XO-Music-App-A-music-app-UI-Design-%28The-Weeknd-Theme%29",
   },
   {
     title: "iCreative Learning",
