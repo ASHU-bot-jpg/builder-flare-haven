@@ -89,6 +89,10 @@ const motionVideos: { title: string; embedUrl: string }[] = [
     title: "Motion Graphic 7",
     embedUrl: "https://player.vimeo.com/video/1117337188",
   },
+  {
+    title: "Portfolio Reel 2023",
+    embedUrl: "https://www.behance.net/embed/project/180502603?ilo0=1",
+  },
 ];
 
 const skills = [
