@@ -354,7 +354,7 @@ export default function Index() {
                 color: "blue",
               },
               {
-                icon: "���",
+                icon: "⚡",
                 title: "Fast Prototyping",
                 description:
                   "Rapid iteration and testing to validate ideas and improve user experience",
@@ -697,7 +697,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/5 md:glass-card border border-white/10 md:border-0 shadow-sm md:shadow-none p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w/full min-w-0 max-w-sm mx-auto"
+                    className="bg-white/5 md:glass-card border border-white/10 md:border-0 shadow-sm md:shadow-none p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
