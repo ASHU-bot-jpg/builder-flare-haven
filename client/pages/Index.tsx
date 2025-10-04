@@ -615,7 +615,7 @@ export default function Index() {
                 </svg>
               </button>
 
-              <div id="get-in-touch-cards" className={`space-y-6 ${showGetMobile ? 'block' : 'hidden'} md:block`}>
+              <div id="get-in-touch-cards" className={`space-y-6 px-4 md:px-0 ${showGetMobile ? 'block' : 'hidden'} md:block`}>
                 {[
                   {
                     icon: "✉",
