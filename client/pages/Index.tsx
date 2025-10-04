@@ -124,6 +124,8 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [autoScroll, setAutoScroll] = useState(true);
+  const [showGetMobile, setShowGetMobile] = useState(false);
+  const [showFollowMobile, setShowFollowMobile] = useState(false);
   const motionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -292,7 +294,7 @@ export default function Index() {
 
             <div className="flex gap-4 pt-8 justify-center lg:justify-start">
               <a
-                href="https://drive.google.com/file/d/1IFnsUThOEGWpkiSpedOn00sWE2TNqZKp/view"
+                href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl"
@@ -336,11 +338,7 @@ export default function Index() {
               About <span className="text-gradient-spotify">Me</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
-              I'm a f Product and Motion Designer based in Bangalore,
-              specializing in creating user-centric designs that enhance product
-              experiences. With expertise in UX research, prototyping, and
-              design systems, I help fast-moving teams build scalable and
-              intuitive digital products.
+              I'm a Product and Motion Designer based in Bangalore, specializing in creating user-centric designs that enhance product experiences. With expertise in UX research, prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
             </p>
           </div>
 
@@ -604,8 +602,20 @@ export default function Index() {
               <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">
                 Get in Touch
               </h3>
+              <button
+                type="button"
+                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
+                onClick={() => setShowGetMobile((v) => !v)}
+                aria-expanded={showGetMobile}
+                aria-controls="get-in-touch-cards"
+              >
+                {showGetMobile ? "Hide" : "Show"} options
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? 'rotate-180' : ''}`}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
 
-              <div className="space-y-6">
+              <div id="get-in-touch-cards" className={`space-y-6 ${showGetMobile ? 'block' : 'hidden'} md:block`}>
                 {[
                   {
                     icon: "✉",
@@ -634,7 +644,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="bg-white/5 md:glass-card border border-white/10 md:border-0 shadow-sm md:shadow-none p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
+                    className="glass-card p-4 sm:p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-md md:max-w-none mx-auto md:mx-0"
                   >
                     <div className="flex items-center gap-6 justify-center md:justify-start">
                       <div
@@ -660,8 +670,20 @@ export default function Index() {
               <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">
                 Follow My Work
               </h3>
+              <button
+                type="button"
+                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
+                onClick={() => setShowFollowMobile((v) => !v)}
+                aria-expanded={showFollowMobile}
+                aria-controls="follow-my-work-cards"
+              >
+                {showFollowMobile ? "Hide" : "Show"} options
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showFollowMobile ? 'rotate-180' : ''}`}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4">
+              <div id="follow-my-work-cards" className={`${showFollowMobile ? 'grid' : 'hidden'} md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4`}>
                 {[
                   {
                     icon: "🎨",
@@ -671,25 +693,11 @@ export default function Index() {
                     color: "blue",
                   },
                   {
-                    icon: "💻",
-                    label: "GitHub",
-                    url: "github.com/ashutosh",
-                    link: "https://github.com/ashutosh",
-                    color: "green",
-                  },
-                  {
                     icon: "💼",
                     label: "LinkedIn",
                     url: "linkedin.com/in/ashutoshsinha",
                     link: "https://www.linkedin.com/in/ashutoshsinha/",
                     color: "purple",
-                  },
-                  {
-                    icon: "✉",
-                    label: "Email",
-                    url: "Contact me",
-                    link: "https://mail.google.com/mail/u/0/#inbox",
-                    color: "blue",
                   },
                 ].map((social, index) => (
                   <a
@@ -697,7 +705,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/5 md:glass-card border border-white/10 md:border-0 shadow-sm md:shadow-none p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
+                    className="glass-card p-4 sm:p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
@@ -720,7 +728,7 @@ export default function Index() {
 
               <div className="mt-12 mb-24 sm:mb-0">
                 <a
-                  href="https://drive.google.com/file/d/1IFnsUThOEGWpkiSpedOn00sWE2TNqZKp/view"
+                  href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
