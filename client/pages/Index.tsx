@@ -671,10 +671,10 @@ export default function Index() {
                         {contact.icon}
                       </div>
                       <div>
-                        <div className="text-glass-muted text-sm uppercase tracking-wide mb-1 text-center md:text-left">
+                        <div className="text-glass-muted text-xs sm:text-sm uppercase tracking-wide mb-1 text-center md:text-left">
                           {contact.label}
                         </div>
-                        <div className="text-glass-text text-lg font-medium text-center md:text-left">
+                        <div className="text-glass-text text-base sm:text-lg font-medium text-center md:text-left">
                           {contact.value}
                         </div>
                       </div>
