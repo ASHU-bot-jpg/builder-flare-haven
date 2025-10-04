@@ -338,7 +338,11 @@ export default function Index() {
               About <span className="text-gradient-spotify">Me</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
-              I'm a Product and Motion Designer based in Bangalore, specializing in creating user-centric designs that enhance product experiences. With expertise in UX research, prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
+              I'm a Product and Motion Designer based in Bangalore, specializing
+              in creating user-centric designs that enhance product experiences.
+              With expertise in UX research, prototyping, and design systems, I
+              help fast-moving teams build scalable and intuitive digital
+              products.
             </p>
           </div>
 
@@ -610,12 +614,26 @@ export default function Index() {
                 aria-controls="get-in-touch-cards"
               >
                 {showGetMobile ? "Hide" : "Show"} options
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? 'rotate-180' : ''}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className={`w-4 h-4 transition-transform ${showGetMobile ? "rotate-180" : ""}`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 9l6 6 6-6"
+                  />
                 </svg>
               </button>
 
-              <div id="get-in-touch-cards" className={`space-y-6 px-4 md:px-0 ${showGetMobile ? 'block' : 'hidden'} md:block`}>
+              <div
+                id="get-in-touch-cards"
+                className={`space-y-6 px-4 md:px-0 ${showGetMobile ? "block" : "hidden"} md:block`}
+              >
                 {[
                   {
                     icon: "✉",
@@ -678,12 +696,26 @@ export default function Index() {
                 aria-controls="follow-my-work-cards"
               >
                 {showFollowMobile ? "Hide" : "Show"} options
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showFollowMobile ? 'rotate-180' : ''}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className={`w-4 h-4 transition-transform ${showFollowMobile ? "rotate-180" : ""}`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 9l6 6 6-6"
+                  />
                 </svg>
               </button>
 
-              <div id="follow-my-work-cards" className={`${showFollowMobile ? 'grid' : 'hidden'} md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4`}>
+              <div
+                id="follow-my-work-cards"
+                className={`${showFollowMobile ? "grid" : "hidden"} md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4`}
+              >
                 {[
                   {
                     icon: "🎨",
