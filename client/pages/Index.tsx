@@ -644,7 +644,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card p-4 sm:p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-sm md:max-w-none mx-auto md:mx-0"
+                    className="glass-card p-3 sm:p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-xs md:max-w-none mx-auto md:mx-0"
                   >
                     <div className="flex items-center gap-6 justify-center md:justify-start">
                       <div
