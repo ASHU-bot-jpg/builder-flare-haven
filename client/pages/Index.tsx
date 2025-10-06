@@ -194,16 +194,7 @@ export default function Index() {
               </button>
             ))}
           </nav>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("contact");
-            }}
-            className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl"
-          >
-            Contact
-          </a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }} className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl">Contact</a>
         </div>
       </header>
 
@@ -237,20 +228,13 @@ export default function Index() {
               ))}
             </div>
           )}
-          <button
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen((v) => !v)}
-            className="w-12 h-12 rounded-full flex items-center justify-center bg-glass-accent text-white shadow-xl glow-accent"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6">
-              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
+          <button aria-label="Toggle menu" aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen((v) => !v)} className="w-12 h-12 rounded-full flex items-center justify-center bg-glass-accent text-white shadow-xl glow-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6"><path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" /></svg>
           </button>
         </div>
       </nav>
 
-      {/* Hero (use past content with new aesthetics) */}
+      {/* Hero */}
       <section id="home" className="aurora min-h-screen flex items-center justify-center px-4 pt-20 pb-28 sm:pb-24 relative">
         <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <div className="space-y-8 text-center lg:text-left">
@@ -265,7 +249,6 @@ export default function Index() {
               <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-xl font-light mx-auto lg:mx-0">Crafting user-centric designs that enhance product experiences for modern digital platforms.</p>
             </div>
 
-            {/* Past contact info inline grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full text-left">
               {[
                 { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
@@ -284,27 +267,10 @@ export default function Index() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
-              <a
-                href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl text-center"
-              >
-                Download CV
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("contact");
-                }}
-                className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl text-center"
-              >
-                Get in Touch
-              </a>
+              <a href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view" target="_blank" rel="noopener noreferrer" className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl text-center">Download CV</a>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }} className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl text-center">Get in Touch</a>
             </div>
 
-            {/* Metrics (design enhancement) */}
             <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 max-w-xl mx-auto lg:mx-0">
               {[
                 { kpi: "4+", label: "Years Experience" },
@@ -327,19 +293,6 @@ export default function Index() {
                   <img src="https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fa4aefdb2c86f46308d02098427ded9d2?format=webp&width=1000" alt="Ashutosh Sinha" className="w-full h-full object-cover rounded-3xl border-4 border-white/20 shadow-2xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-glass-dark/30 via-transparent to-transparent rounded-3xl" />
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Trusted by marquee */}
-        <div className="absolute bottom-6 left-0 right-0">
-          <div className="container mx-auto">
-            <div className="glass-card glass-gradient-border rounded-xl py-3 overflow-hidden">
-              <div className="whitespace-nowrap animate-marquee flex items-center gap-10 text-glass-muted">
-                {['Seekho','Swish','Think41','Giva','XO Music','iCreative Learning','Seekho','Swish','Think41','Giva','XO Music','iCreative Learning'].map((b,i)=> (
-                  <span key={i} className="text-sm tracking-wide">Trusted by teams at {b}</span>
-                ))}
               </div>
             </div>
           </div>
@@ -384,10 +337,7 @@ export default function Index() {
             {projects.map((project, index) => (
               <div key={index} className={`${index===0? 'lg:col-span-2':''} glass-card glass-gradient-border rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 tilt-hover`}>
                 <div className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(' ')[0]} ${getColorClasses(project.color).split(' ')[1]} relative overflow-hidden`}>
-                  <div
-                    className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500"
-                    style={ project.image ? { backgroundImage: `url(${project.image})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' } : {} }
-                  />
+                  <div className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500" style={ project.image ? { backgroundImage: `url(${project.image})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' } : {} } />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">{project.tags[0]}</div>
                 </div>
@@ -460,7 +410,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Contact (restored) */}
+      {/* Contact */}
       <section id="contact" className="py-24 px-4 relative">
         <div className="container mx-auto px-6 sm:px-4">
           <div className="text-center mb-20">
@@ -471,32 +421,24 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 sm:px-6 place-items-center md:place-items-stretch">
             <div className="space-y-8 text-center md:text-left max-w-xl mx-auto md:mx-0 md:max-w-none">
               <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">Get in Touch</h3>
-              <button
-                type="button"
-                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
-                onClick={() => setShowGetMobile((v) => !v)}
-                aria-expanded={showGetMobile}
-                aria-controls="get-in-touch-cards"
-              >
+              <button type="button" className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4" onClick={() => setShowGetMobile((v) => !v)} aria-expanded={showGetMobile} aria-controls="get-in-touch-cards">
                 {showGetMobile ? "Hide" : "Show"} options
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? "rotate-180" : ""}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? "rotate-180" : ""}`}><path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" /></svg>
               </button>
 
-              <div id="get-in-touch-cards" className={`space-y-6 px-4 md:px-0 ${showGetMobile ? "block" : "hidden"} md:block`}>
+              <div id="get-in-touch-cards" className={`${showGetMobile ? "grid" : "hidden"} md:block grid grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4 px-2 sm:px-4 md:px-0 place-items-center md:place-items-start`}>
                 {[
                   { icon: "✉", label: "Email", value: "ashusinha543@gmail.com", color: "blue" },
                   { icon: "📞", label: "Phone", value: "On Request", color: "green" },
                   { icon: "📍", label: "Location", value: "Bangalore, India", color: "purple" },
                   { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", color: "blue" },
                 ].map((contact, index) => (
-                  <div key={index} className="glass-card glass-gradient-border p-3 sm:p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-xs md:max-w-none mx-auto md:mx-0">
-                    <div className="flex items-center gap-6 justify-center md:justify-start">
+                  <div key={index} className="glass-card glass-gradient-border rounded-2xl transition-all w-full aspect-square md:aspect-auto p-4 sm:p-5 md:p-6 flex items-center justify-center md:justify-start mx-auto md:mx-0 max-w-[140px] sm:max-w-[160px] md:max-w-none">
+                    <div className="flex flex-col items-center md:flex-row md:items-center gap-2 sm:gap-3 md:gap-6 text-center md:text-left">
                       <div className={`text-2xl sm:text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}>{contact.icon}</div>
                       <div>
-                        <div className="text-glass-muted text-xs sm:text-sm uppercase tracking-wide mb-1 text-center md:text-left">{contact.label}</div>
-                        <div className="text-glass-text text-base sm:text-lg font-medium text-center md:text-left">{contact.value}</div>
+                        <div className="text-glass-muted text-[10px] sm:text-xs md:text-sm uppercase tracking-wide mb-0.5 md:mb-1">{contact.label}</div>
+                        <div className="text-glass-text text-xs sm:text-sm md:text-lg font-medium break-words">{contact.value}</div>
                       </div>
                     </div>
                   </div>
@@ -506,17 +448,9 @@ export default function Index() {
 
             <div className="space-y-8 text-center md:text-left max-w-xl mx-auto md:mx-0 md:max-w-none">
               <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">Follow My Work</h3>
-              <button
-                type="button"
-                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
-                onClick={() => setShowFollowMobile((v) => !v)}
-                aria-expanded={showFollowMobile}
-                aria-controls="follow-my-work-cards"
-              >
+              <button type="button" className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4" onClick={() => setShowFollowMobile((v) => !v)} aria-expanded={showFollowMobile} aria-controls="follow-my-work-cards">
                 {showFollowMobile ? "Hide" : "Show"} options
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showFollowMobile ? "rotate-180" : ""}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showFollowMobile ? "rotate-180" : ""}`}><path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" /></svg>
               </button>
 
               <div id="follow-my-work-cards" className={`${showFollowMobile ? "grid" : "hidden"} md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4`}>
@@ -537,29 +471,8 @@ export default function Index() {
               </div>
 
               <div className="mt-12 mb-24 sm:mb-0">
-                <a
-                  href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
-                >
-                  Download Portfolio CV
-                </a>
+                <a href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view" target="_blank" rel="noopener noreferrer" className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg">Download Portfolio CV</a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-12 px-4">
-        <div className="container mx-auto">
-          <div className="glass-card glass-gradient-border rounded-3xl p-8 md:p-12 text-center">
-            <h3 className="text-3xl md:text-5xl font-black mb-4">Let’s build something outstanding</h3>
-            <p className="text-glass-muted max-w-2xl mx-auto">Open to product, UX and motion roles. I can help you design, validate and ship faster.</p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#projects" onClick={(e)=>{e.preventDefault();scrollToSection('projects');}} className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl">See projects</a>
-              <a href="#contact" onClick={(e)=>{e.preventDefault();scrollToSection('contact');}} className="glass-card glass-gradient-border px-8 py-4 rounded-2xl">Contact me</a>
             </div>
           </div>
         </div>
