@@ -229,57 +229,142 @@
 
 @layer utilities {
   .bg-dot-grid {
-    background-image: radial-gradient(hsla(var(--glass-border), 0.25) 1px, transparent 1px);
+    background-image: radial-gradient(
+      hsla(var(--glass-border), 0.25) 1px,
+      transparent 1px
+    );
     background-size: 22px 22px;
     background-position: -11px -11px;
   }
 
-  .glass-gradient-border { position: relative; }
+  .glass-gradient-border {
+    position: relative;
+  }
   .glass-gradient-border::before {
     content: "";
-    position: absolute; inset: 0; padding: 1px; border-radius: inherit;
-    background: linear-gradient(120deg,
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      120deg,
       hsla(var(--glass-blue), 0.6),
       hsla(var(--glass-purple), 0.6),
       hsla(var(--glass-green), 0.6)
     );
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     pointer-events: none;
   }
 
-  .tilt-hover { transform-style: preserve-3d; transition: transform .4s ease, box-shadow .4s ease; }
-  .tilt-hover:hover { transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-2px); box-shadow: 0 24px 60px hsla(0,0%,0%,0.35); }
+  .tilt-hover {
+    transform-style: preserve-3d;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+  .tilt-hover:hover {
+    transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-2px);
+    box-shadow: 0 24px 60px hsla(0, 0%, 0%, 0.35);
+  }
 
-  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .animate-marquee { animation: marquee 20s linear infinite; }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
 
   /* Aurora animated background blobs */
   @keyframes aurora-move {
-    0% { transform: translate(-10%, -10%) rotate(0deg) scale(1); }
-    50% { transform: translate(10%, 5%) rotate(45deg) scale(1.1); }
-    100% { transform: translate(-10%, -10%) rotate(0deg) scale(1); }
+    0% {
+      transform: translate(-10%, -10%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(10%, 5%) rotate(45deg) scale(1.1);
+    }
+    100% {
+      transform: translate(-10%, -10%) rotate(0deg) scale(1);
+    }
   }
-  .aurora { position: relative; overflow: hidden; }
-  .aurora::before, .aurora::after {
-    content: ""; position: absolute; width: 50vw; height: 50vw; max-width: 720px; max-height: 720px;
-    filter: blur(80px); opacity: .25; border-radius: 50%; pointer-events: none;
-    background: radial-gradient(closest-side, hsl(var(--glass-purple)) 0%, transparent 60%);
+  .aurora {
+    position: relative;
+    overflow: hidden;
+  }
+  .aurora::before,
+  .aurora::after {
+    content: "";
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    max-width: 720px;
+    max-height: 720px;
+    filter: blur(80px);
+    opacity: 0.25;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(
+      closest-side,
+      hsl(var(--glass-purple)) 0%,
+      transparent 60%
+    );
     animation: aurora-move 18s ease-in-out infinite;
   }
-  .aurora::after { background: radial-gradient(closest-side, hsl(var(--glass-blue)) 0%, transparent 60%); animation-duration: 22s; }
+  .aurora::after {
+    background: radial-gradient(
+      closest-side,
+      hsl(var(--glass-blue)) 0%,
+      transparent 60%
+    );
+    animation-duration: 22s;
+  }
 
   /* Shine on hover */
-  .shine-on-hover { position: relative; overflow: hidden; }
-  .shine-on-hover::after {
-    content: ""; position: absolute; inset: -200% -50%; background:
-      linear-gradient(120deg, transparent 40%, hsla(0,0%,100%,.25) 50%, transparent 60%);
-    transform: translateX(-100%); transition: transform .8s ease;
+  .shine-on-hover {
+    position: relative;
+    overflow: hidden;
   }
-  .shine-on-hover:hover::after { transform: translateX(100%); }
+  .shine-on-hover::after {
+    content: "";
+    position: absolute;
+    inset: -200% -50%;
+    background: linear-gradient(
+      120deg,
+      transparent 40%,
+      hsla(0, 0%, 100%, 0.25) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+  }
+  .shine-on-hover:hover::after {
+    transform: translateX(100%);
+  }
 
   /* Float animation for badges/cards */
-  @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
-  .animate-float { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 }
