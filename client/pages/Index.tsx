@@ -166,12 +166,7 @@ export default function Index() {
         <div className="h-full bg-gradient-to-r from-glass-green via-glass-purple to-glass-blue glow-accent" style={{ width: `${progress}%` }} />
       </div>
 
-      {/* Background Effects */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-dot-grid opacity-[0.25]" />
-      </div>
-
-      {/* Top Navbar (Webflow-style) */}
+      {/* Top Navbar */}
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl hidden md:block">
         <div className="glass-nav glass-gradient-border rounded-2xl px-4 py-3 flex items-center justify-between">
           <button onClick={() => scrollToSection("home")} className="flex items-center gap-3">
@@ -199,7 +194,16 @@ export default function Index() {
               </button>
             ))}
           </nav>
-          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }} className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl">Let's talk</a>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("contact");
+            }}
+            className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl"
+          >
+            Contact
+          </a>
         </div>
       </header>
 
@@ -246,32 +250,61 @@ export default function Index() {
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero (use past content with new aesthetics) */}
       <section id="home" className="aurora min-h-screen flex items-center justify-center px-4 pt-20 pb-28 sm:pb-24 relative">
         <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur animate-float">
-              <span className="w-2 h-2 bg-glass-green rounded-full" />
-              <span className="text-xs text-glass-muted">Available for freelance & full-time</span>
+            <div className="flex items-center gap-3 justify-center lg:justify-start">
+              <div className="w-3 h-3 bg-glass-green rounded-full animate-pulse" />
+              <span className="text-glass-muted font-medium">Open to work</span>
             </div>
 
             <div className="space-y-6">
-              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight break-words">
-                <span className="text-gradient-accent">Designing products</span>
-                <br />
-                that people love
-              </h1>
-              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-xl font-light mx-auto lg:mx-0">
-                Blending product, motion and research to ship delightful, high-impact experiences.
-              </p>
+              <h2 className="text-glass-accent font-bold text-xs sm:text-sm lg:text-lg tracking-[0.2em] uppercase">PRODUCT & MOTION DESIGNER</h2>
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight break-words"><span className="text-gradient-accent">Ashutosh Sinha</span></h1>
+              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-xl font-light mx-auto lg:mx-0">Crafting user-centric designs that enhance product experiences for modern digital platforms.</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-              <a href="#projects" onClick={(e)=>{e.preventDefault();scrollToSection("projects");}} className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl text-center">View Work</a>
-              <a href="#contact" onClick={(e)=>{e.preventDefault();scrollToSection("contact");}} className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl text-center">Get in Touch</a>
+            {/* Past contact info inline grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full text-left">
+              {[
+                { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
+                { icon: "📞", label: "Phone", value: "On Request" },
+                { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha" },
+                { icon: "📍", label: "Location", value: "Bangalore, India" },
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-3 text-glass-muted min-w-0">
+                  <span className="text-glass-accent text-lg w-6 h-6 flex items-center justify-center shrink-0">{item.icon}</span>
+                  <div>
+                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide text-left">{item.label}</div>
+                    <div className="text-sm font-medium break-words text-left">{item.value}</div>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Metrics */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
+              <a
+                href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl text-center"
+              >
+                Download CV
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("contact");
+                }}
+                className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl text-center"
+              >
+                Get in Touch
+              </a>
+            </div>
+
+            {/* Metrics (design enhancement) */}
             <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 max-w-xl mx-auto lg:mx-0">
               {[
                 { kpi: "4+", label: "Years Experience" },
@@ -319,15 +352,15 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">About <span className="text-gradient-spotify">Me</span></h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
-              Product & Motion Designer based in Bangalore, focused on shipping intuitive, scalable and visually compelling experiences for fast-moving teams.
+              I'm a Product and Motion Designer based in Bangalore, specializing in creating user-centric designs that enhance product experiences. With expertise in UX research, prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "📱", title: "Mobile-first", description: "Responsive experiences that feel native across devices" },
-              { icon: "⚡", title: "Rapid prototyping", description: "Tested flows and interactions to de-risk delivery" },
-              { icon: "🎛", title: "Design systems", description: "Token-driven, accessible UI kits and components" },
+              { icon: "📱", title: "Mobile-First Design", description: "Crafting responsive experiences that work seamlessly across all devices", color: "blue" },
+              { icon: "⚡", title: "Fast Prototyping", description: "Rapid iteration and testing to validate ideas and improve user experience", color: "green" },
+              { icon: "👥", title: "User-Centered", description: "Deep user research and testing to create meaningful digital experiences", color: "purple" },
             ].map((item, index) => (
               <div key={index} className="glass-card glass-gradient-border p-8 rounded-3xl hover:scale-[1.02] transition-all duration-300 group">
                 <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
@@ -344,7 +377,7 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">Featured <span className="text-gradient-accent">Projects</span></h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">A selection of product, UX and motion work.</p>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">A selection of my recent work in product design, UX research, and motion design</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
@@ -383,7 +416,7 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">Motion <span className="text-gradient-accent">Graphics</span></h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">Micro-interactions and motion studies.</p>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">A selection of motion design and micro-interactions.</p>
           </div>
 
           <div ref={motionRef} className="no-scrollbar overflow-x-auto select-none -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth" onMouseEnter={() => setAutoScroll(false)} onMouseLeave={() => setAutoScroll(true)} onTouchStart={() => setAutoScroll(false)} onTouchEnd={() => setAutoScroll(true)}>
@@ -408,7 +441,7 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">Skills & <span className="text-gradient-spotify">Expertise</span></h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">Core strengths in product and UX.</p>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">My core competencies in design and user experience</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -427,23 +460,93 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 px-4 relative">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">What partners <span className="text-gradient-accent">say</span></h2>
+      {/* Contact (restored) */}
+      <section id="contact" className="py-24 px-4 relative">
+        <div className="container mx-auto px-6 sm:px-4">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">Let's <span className="text-gradient-accent">Connect</span></h2>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">Available for freelance projects and full-time opportunities</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { quote: "Ashutosh elevated our product experience end-to-end.", name: "Product Lead, Swish" },
-              { quote: "Thinks in systems, ships with craft and speed.", name: "Founder, Think41" },
-              { quote: "Users loved the new flows. Conversion up 18%.", name: "PM, Giva" },
-            ].map((t, i) => (
-              <div key={i} className="glass-card glass-gradient-border rounded-2xl p-6">
-                <p className="text-glass-text text-lg">“{t.quote}”</p>
-                <p className="text-glass-muted text-sm mt-4">{t.name}</p>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 sm:px-6 place-items-center md:place-items-stretch">
+            <div className="space-y-8 text-center md:text-left max-w-xl mx-auto md:mx-0 md:max-w-none">
+              <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">Get in Touch</h3>
+              <button
+                type="button"
+                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
+                onClick={() => setShowGetMobile((v) => !v)}
+                aria-expanded={showGetMobile}
+                aria-controls="get-in-touch-cards"
+              >
+                {showGetMobile ? "Hide" : "Show"} options
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? "rotate-180" : ""}`}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              <div id="get-in-touch-cards" className={`space-y-6 px-4 md:px-0 ${showGetMobile ? "block" : "hidden"} md:block`}>
+                {[
+                  { icon: "✉", label: "Email", value: "ashusinha543@gmail.com", color: "blue" },
+                  { icon: "📞", label: "Phone", value: "On Request", color: "green" },
+                  { icon: "📍", label: "Location", value: "Bangalore, India", color: "purple" },
+                  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", color: "blue" },
+                ].map((contact, index) => (
+                  <div key={index} className="glass-card glass-gradient-border p-3 sm:p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-xs md:max-w-none mx-auto md:mx-0">
+                    <div className="flex items-center gap-6 justify-center md:justify-start">
+                      <div className={`text-2xl sm:text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}>{contact.icon}</div>
+                      <div>
+                        <div className="text-glass-muted text-xs sm:text-sm uppercase tracking-wide mb-1 text-center md:text-left">{contact.label}</div>
+                        <div className="text-glass-text text-base sm:text-lg font-medium text-center md:text-left">{contact.value}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <div className="space-y-8 text-center md:text-left max-w-xl mx-auto md:mx-0 md:max-w-none">
+              <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">Follow My Work</h3>
+              <button
+                type="button"
+                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
+                onClick={() => setShowFollowMobile((v) => !v)}
+                aria-expanded={showFollowMobile}
+                aria-controls="follow-my-work-cards"
+              >
+                {showFollowMobile ? "Hide" : "Show"} options
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showFollowMobile ? "rotate-180" : ""}`}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              <div id="follow-my-work-cards" className={`${showFollowMobile ? "grid" : "hidden"} md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4`}>
+                {[
+                  { icon: "🎨", label: "Behance", url: "behance.net/ashutoshsinha1", link: "https://www.behance.net/ashutoshsinha1", color: "blue" },
+                  { icon: "💼", label: "LinkedIn", url: "linkedin.com/in/ashutoshsinha", link: "https://www.linkedin.com/in/ashutoshsinha/", color: "purple" },
+                ].map((social, index) => (
+                  <a key={index} href={social.link} target="_blank" rel="noopener noreferrer" className="glass-card glass-gradient-border p-4 sm:p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto">
+                    <div className="flex flex-col items-center gap-4">
+                      <div className={`text-3xl sm:text-4xl ${getColorClasses(social.color).split(" ")[3]} group-hover:scale-110 transition-transform`}>{social.icon}</div>
+                      <div className="text-center">
+                        <div className="text-glass-text font-bold text-base sm:text-lg">{social.label}</div>
+                        <div className="text-glass-muted text-xs sm:text-sm">{social.url}</div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              <div className="mt-12 mb-24 sm:mb-0">
+                <a
+                  href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
+                >
+                  Download Portfolio CV
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
