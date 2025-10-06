@@ -101,6 +101,7 @@ export default function Index() {
   const [autoScroll, setAutoScroll] = useState(true);
   const [showGetMobile, setShowGetMobile] = useState(false);
   const [showFollowMobile, setShowFollowMobile] = useState(false);
+  const [progress, setProgress] = useState(0);
   const motionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -138,6 +139,18 @@ export default function Index() {
     return () => io.disconnect();
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setProgress(Math.min(100, Math.max(0, pct)));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -148,41 +161,49 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-glass-dark relative overflow-x-hidden pb-24 md:pb-28">
+      {/* Scroll progress */}
+      <div aria-hidden className="fixed top-0 left-0 h-[3px] w-full z-[60] bg-white/5 backdrop-blur">
+        <div className="h-full bg-gradient-to-r from-glass-green via-glass-purple to-glass-blue glow-accent" style={{ width: `${progress}%` }} />
+      </div>
+
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-dot-grid opacity-[0.25]" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glass-blue/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glass-purple/10 rounded-full blur-3xl" />
-        <div className="absolute top-3/4 left-2/3 w-64 h-64 bg-glass-green/10 rounded-full blur-2xl" />
       </div>
 
-      {/* Navigation - Desktop */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block">
-        <div className="glass-nav rounded-full p-2 flex gap-2 shadow-2xl ring-1 ring-white/10">
-          {[
-            { id: "home", label: "Home" },
-            { id: "about", label: "About" },
-            { id: "projects", label: "Projects" },
-            { id: "motion", label: "Motion" },
-            { id: "skills", label: "Skills" },
-            { id: "contact", label: "Contact" },
-          ].map((nav) => (
-            <button
-              key={nav.id}
-              onClick={() => scrollToSection(nav.id)}
-              className={`px-5 py-3 rounded-full transition-all text-sm font-medium relative overflow-hidden ${
-                activeSection === nav.id
-                  ? "bg-glass-accent text-white shadow-lg glow-accent"
-                  : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
-              }`}
-            >
-              <span className="relative z-10">{nav.label}</span>
-            </button>
-          ))}
+      {/* Top Navbar (Webflow-style) */}
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl hidden md:block">
+        <div className="glass-nav glass-gradient-border rounded-2xl px-4 py-3 flex items-center justify-between">
+          <button onClick={() => scrollToSection("home")} className="flex items-center gap-3">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-glass-blue to-glass-green text-white font-black shadow glow-accent">AS</span>
+            <span className="text-sm text-glass-muted">Ashutosh Sinha</span>
+          </button>
+          <nav className="flex items-center gap-2">
+            {[
+              { id: "about", label: "About" },
+              { id: "projects", label: "Projects" },
+              { id: "motion", label: "Motion" },
+              { id: "skills", label: "Skills" },
+              { id: "contact", label: "Contact" },
+            ].map((nav) => (
+              <button
+                key={nav.id}
+                onClick={() => scrollToSection(nav.id)}
+                className={`px-4 py-2 rounded-xl text-sm transition-all ${
+                  activeSection === nav.id
+                    ? "bg-glass-accent text-white glow-accent"
+                    : "text-glass-text hover:text-glass-accent hover:bg-white/5"
+                }`}
+              >
+                {nav.label}
+              </button>
+            ))}
+          </nav>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }} className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl">Let's talk</a>
         </div>
-      </nav>
+      </header>
 
-      {/* Navigation - Mobile */}
+      {/* Mobile Nav (bottom) */}
       <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
         <div className="relative">
           {isMobileMenuOpen && (
@@ -218,126 +239,99 @@ export default function Index() {
             onClick={() => setIsMobileMenuOpen((v) => !v)}
             className="w-12 h-12 rounded-full flex items-center justify-center bg-glass-accent text-white shadow-xl glow-accent"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="w-6 h-6"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6">
               <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
             </svg>
           </button>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="min-h-screen flex items-center justify-center px-4 pt-8 pb-28 sm:pb-24 relative"
-      >
+      {/* Hero */}
+      <section id="home" className="aurora min-h-screen flex items-center justify-center px-4 pt-20 pb-28 sm:pb-24 relative">
         <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <div className="space-y-8 text-center lg:text-left">
-            <div className="flex items-center gap-3 justify-center lg:justify-start">
-              <div className="w-3 h-3 bg-glass-green rounded-full animate-pulse" />
-              <span className="text-glass-muted font-medium">Open to work</span>
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur animate-float">
+              <span className="w-2 h-2 bg-glass-green rounded-full" />
+              <span className="text-xs text-glass-muted">Available for freelance & full-time</span>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-glass-accent font-bold text-xs sm:text-sm lg:text-lg tracking-[0.2em] uppercase">
-                PRODUCT & MOTION DESIGNER
-              </h2>
               <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight break-words">
-                <span className="text-gradient-accent">Ashutosh Sinha</span>
+                <span className="text-gradient-accent">Designing products</span>
+                <br />
+                that people love
               </h1>
-              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-lg font-light mx-auto lg:mx-0">
-                Crafting user-centric designs that enhance product experiences for modern digital platforms.
+              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-xl font-light mx-auto lg:mx-0">
+                Blending product, motion and research to ship delightful, high-impact experiences.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full text-left">
-              {[
-                { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
-                { icon: "📞", label: "Phone", value: "On Request" },
-                { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha" },
-                { icon: "📍", label: "Location", value: "Bangalore, India" },
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 text-glass-muted min-w-0">
-                  <span className="text-glass-accent text-lg w-6 h-6 flex items-center justify-center shrink-0">
-                    {item.icon}
-                  </span>
-                  <div>
-                    <div className="text-xs text-glass-muted/60 uppercase tracking-wide text-left">
-                      {item.label}
-                    </div>
-                    <div className="text-sm font-medium break-words text-left">
-                      {item.value}
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+              <a href="#projects" onClick={(e)=>{e.preventDefault();scrollToSection("projects");}} className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl text-center">View Work</a>
+              <a href="#contact" onClick={(e)=>{e.preventDefault();scrollToSection("contact");}} className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl text-center">Get in Touch</a>
             </div>
 
-            <div className="flex gap-4 pt-8 justify-center lg:justify-start">
-              <a
-                href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl"
-              >
-                Download CV
-              </a>
-              <a
-                href="https://mail.google.com/mail/u/0/#inbox"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl transition-all hover:scale-105"
-              >
-                Get in Touch
-              </a>
+            {/* Metrics */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 max-w-xl mx-auto lg:mx-0">
+              {[
+                { kpi: "4+", label: "Years Experience" },
+                { kpi: "25+", label: "Projects Delivered" },
+                { kpi: "6+", label: "Case Studies" },
+              ].map((m, i) => (
+                <div key={i} className="glass-card glass-gradient-border rounded-2xl px-4 py-5 text-center">
+                  <div className="text-2xl font-black text-glass-text">{m.kpi}</div>
+                  <div className="text-xs text-glass-muted">{m.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-[28rem] lg:h-[28rem] glass-card glass-gradient-border rounded-[3rem] flex items-center justify-center relative overflow-hidden tilt-hover">
-                <div className="absolute inset-0 bg-gradient-to-br from-glass-blue/20 via-glass-purple/10 to-glass-green/20" />
-                <div className="relative z-10 w-64 h-64 lg:w-80 lg:h-80">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fa4aefdb2c86f46308d02098427ded9d2?format=webp&width=800"
-                    alt="Ashutosh Sinha"
-                    className="w-full h-full object-cover rounded-3xl border-4 border-white/20 shadow-2xl"
-                  />
+              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[32rem] lg:h-[32rem] glass-card glass-gradient-border rounded-[3rem] flex items-center justify-center relative overflow-hidden tilt-hover">
+                <div className="absolute inset-0 bg-gradient-to-br from-glass-blue/30 via-glass-purple/10 to-glass-green/30" />
+                <div className="relative z-10 w-64 h-64 lg:w-96 lg:h-96">
+                  <img src="https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fa4aefdb2c86f46308d02098427ded9d2?format=webp&width=1000" alt="Ashutosh Sinha" className="w-full h-full object-cover rounded-3xl border-4 border-white/20 shadow-2xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-glass-dark/30 via-transparent to-transparent rounded-3xl" />
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Trusted by marquee */}
+        <div className="absolute bottom-6 left-0 right-0">
+          <div className="container mx-auto">
+            <div className="glass-card glass-gradient-border rounded-xl py-3 overflow-hidden">
+              <div className="whitespace-nowrap animate-marquee flex items-center gap-10 text-glass-muted">
+                {['Seekho','Swish','Think41','Giva','XO Music','iCreative Learning','Seekho','Swish','Think41','Giva','XO Music','iCreative Learning'].map((b,i)=> (
+                  <span key={i} className="text-sm tracking-wide">Trusted by teams at {b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* About Section */}
+      {/* About */}
       <section id="about" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
-              About <span className="text-gradient-spotify">Me</span>
-            </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">About <span className="text-gradient-spotify">Me</span></h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
-              I'm a Product and Motion Designer based in Bangalore, specializing in creating user-centric designs that enhance product experiences. With expertise in UX research, prototyping, and design systems, I help fast-moving teams build scalable and intuitive digital products.
+              Product & Motion Designer based in Bangalore, focused on shipping intuitive, scalable and visually compelling experiences for fast-moving teams.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "📱", title: "Mobile-First Design", description: "Crafting responsive experiences that work seamlessly across all devices", color: "blue" },
-              { icon: "⚡", title: "Fast Prototyping", description: "Rapid iteration and testing to validate ideas and improve user experience", color: "green" },
-              { icon: "👥", title: "User-Centered", description: "Deep user research and testing to create meaningful digital experiences", color: "purple" },
+              { icon: "📱", title: "Mobile-first", description: "Responsive experiences that feel native across devices" },
+              { icon: "⚡", title: "Rapid prototyping", description: "Tested flows and interactions to de-risk delivery" },
+              { icon: "🎛", title: "Design systems", description: "Token-driven, accessible UI kits and components" },
             ].map((item, index) => (
-              <div key={index} className="glass-card glass-gradient-border p-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
+              <div key={index} className="glass-card glass-gradient-border p-8 rounded-3xl hover:scale-[1.02] transition-all duration-300 group">
                 <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-                <h3 className="text-2xl font-bold text-glass-text mb-4">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-glass-text mb-3">{item.title}</h3>
                 <p className="text-glass-muted leading-relaxed">{item.description}</p>
               </div>
             ))}
@@ -345,77 +339,38 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects */}
       <section id="projects" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
-              Featured <span className="text-gradient-accent">Projects</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
-              A showcase of my recent work in product design, UX research, and motion design
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">Featured <span className="text-gradient-accent">Projects</span></h2>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">A selection of product, UX and motion work.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
             {projects.map((project, index) => (
-              <div
-                key={index}
-                className="glass-card glass-gradient-border rounded-3xl overflow-hidden transition-all duration-300 group border border-white/10 hover:border-white/20 hover:-translate-y-1 hover:shadow-2xl tilt-hover"
-              >
-                <div className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(" ")[0]} ${getColorClasses(project.color).split(" ")[1]} relative overflow-hidden`}>
+              <div key={index} className={`${index===0? 'lg:col-span-2':''} glass-card glass-gradient-border rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 tilt-hover`}>
+                <div className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(' ')[0]} ${getColorClasses(project.color).split(' ')[1]} relative overflow-hidden`}>
                   <div
                     className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500"
-                    style={
-                      project.image
-                        ? {
-                            backgroundImage: `url(${project.image})`,
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            backgroundSize: "cover",
-                          }
-                        : {}
-                    }
-                  >
-                    {!project.image && (
-                      <div className={`${getColorClasses(project.color).split(" ")[3]} text-3xl font-black`}>
-                        {index + 1}
-                      </div>
-                    )}
-                  </div>
+                    style={ project.image ? { backgroundImage: `url(${project.image})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' } : {} }
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">{project.tags[0]}</div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-glass-text mb-4 group-hover:text-gradient-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-glass-muted mb-6 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-2xl font-bold text-glass-text group-hover:text-gradient-accent transition-colors">{project.title}</h3>
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="shine-on-hover inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-glass-accent hover:text-white transition-all">View
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                  <p className="text-glass-muted mt-3 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className={`bg-white/5 border border-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-text/90`}>
-                        {tag}
-                      </span>
+                      <span key={tagIndex} className="bg-white/5 border border-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-text/90">{tag}</span>
                     ))}
                   </div>
-                  {project.url ? (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-glass-text hover:bg-glass-accent hover:text-white transition-all"
-                    >
-                      View Project
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  ) : (
-                    <button className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-glass-text hover:bg-glass-accent hover:text-white transition-all">
-                      View Project
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  )}
                 </div>
               </div>
             ))}
@@ -423,62 +378,37 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Motion Graphics Section */}
+      {/* Motion */}
       <section id="motion" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
-              Motion <span className="text-gradient-accent">Graphics</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
-              A selection of motion design and micro-interactions.
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">Motion <span className="text-gradient-accent">Graphics</span></h2>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">Micro-interactions and motion studies.</p>
           </div>
 
-          <div
-            ref={motionRef}
-            className="no-scrollbar overflow-x-auto select-none -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth"
-            onMouseEnter={() => setAutoScroll(false)}
-            onMouseLeave={() => setAutoScroll(true)}
-            onTouchStart={() => setAutoScroll(false)}
-            onTouchEnd={() => setAutoScroll(true)}
-          >
+          <div ref={motionRef} className="no-scrollbar overflow-x-auto select-none -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth" onMouseEnter={() => setAutoScroll(false)} onMouseLeave={() => setAutoScroll(true)} onTouchStart={() => setAutoScroll(false)} onTouchEnd={() => setAutoScroll(true)}>
             <div className="flex gap-4 sm:gap-6 snap-x snap-mandatory">
               <div className="shrink-0 w-2 sm:w-0" />
-              {motionVideos.length === 0 ? (
-                <div className="mx-auto text-glass-muted">Add videos to the motionVideos array to display here.</div>
-              ) : (
-                motionVideos.concat(motionVideos).map((video, i) => (
-                  <div key={`${video.title}-${i}`} className="glass-card glass-gradient-border rounded-2xl p-2 min-w-[260px] sm:min-w-[420px] snap-center w-full max-w-md">
-                    <div className="aspect-video rounded-xl overflow-hidden">
-                      <iframe
-                        src={video.embedUrl}
-                        title={video.title}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      />
-                    </div>
-                    <div className="px-3 py-3 text-center text-glass-text font-medium">{video.title}</div>
+              {motionVideos.concat(motionVideos).map((video, i) => (
+                <div key={`${video.title}-${i}`} className="glass-card glass-gradient-border rounded-2xl p-2 min-w-[260px] sm:min-w-[420px] snap-center w-full max-w-md">
+                  <div className="aspect-video rounded-xl overflow-hidden">
+                    <iframe src={video.embedUrl} title={video.title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
                   </div>
-                ))
-              )}
+                  <div className="px-3 py-3 text-center text-glass-text font-medium">{video.title}</div>
+                </div>
+              ))}
               <div className="shrink-0 w-2 sm:w-0" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills */}
       <section id="skills" className="py-24 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
-              Skills & <span className="text-gradient-spotify">Expertise</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
-              My core competencies in design and user experience
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">Skills & <span className="text-gradient-spotify">Expertise</span></h2>
+            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">Core strengths in product and UX.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -486,23 +416,10 @@ export default function Index() {
               <div key={index} className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-glass-text">{skill.name}</span>
-                  <span className={`text-xl font-black ${getColorClasses(skill.color).split(" ")[3]}`}>
-                    {skill.level}%
-                  </span>
+                  <span className={`text-xl font-black ${getColorClasses(skill.color).split(" ")[3]}`}>{skill.level}%</span>
                 </div>
                 <div className="w-full glass-card glass-gradient-border rounded-full h-4 overflow-hidden">
-                  <div
-                    className={`bg-gradient-to-r ${
-                      skill.color === "blue"
-                        ? "from-glass-blue to-glass-purple"
-                        : skill.color === "green"
-                        ? "from-glass-green to-glass-blue"
-                        : "from-glass-purple to-glass-blue"
-                    } h-4 rounded-full transition-all duration-1000 ${
-                      skill.color === "green" ? "glow-green" : "glow-accent"
-                    }`}
-                    style={{ width: `${skill.level}%` }}
-                  />
+                  <div className={`bg-gradient-to-r ${ skill.color === 'blue' ? 'from-glass-blue to-glass-purple' : skill.color === 'green' ? 'from-glass-green to-glass-blue' : 'from-glass-purple to-glass-blue' } h-4 rounded-full transition-all duration-1000 ${ skill.color === 'green' ? 'glow-green' : 'glow-accent' }`} style={{ width: `${skill.level}%` }} />
                 </div>
               </div>
             ))}
@@ -510,102 +427,36 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 px-4 relative">
-        <div className="container mx-auto px-6 sm:px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
-              Let's <span className="text-gradient-accent">Connect</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
-              Available for freelance projects and full-time opportunities
-            </p>
+      {/* Testimonials */}
+      <section className="py-24 px-4 relative">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">What partners <span className="text-gradient-accent">say</span></h2>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 sm:px-6 place-items-center md:place-items-stretch">
-            <div className="space-y-8 text-center md:text-left max-w-xl mx-auto md:mx-0 md:max-w-none">
-              <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">Get in Touch</h3>
-              <button
-                type="button"
-                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
-                onClick={() => setShowGetMobile((v) => !v)}
-                aria-expanded={showGetMobile}
-                aria-controls="get-in-touch-cards"
-              >
-                {showGetMobile ? "Hide" : "Show"} options
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? "rotate-180" : ""}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
-
-              <div id="get-in-touch-cards" className={`space-y-6 px-4 md:px-0 ${showGetMobile ? "block" : "hidden"} md:block`}>
-                {[
-                  { icon: "✉", label: "Email", value: "ashusinha543@gmail.com", color: "blue" },
-                  { icon: "📞", label: "Phone", value: "On Request", color: "green" },
-                  { icon: "📍", label: "Location", value: "Bangalore, India", color: "purple" },
-                  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", color: "blue" },
-                ].map((contact, index) => (
-                  <div key={index} className="glass-card glass-gradient-border p-3 sm:p-6 rounded-2xl transition-all sm:hover:scale-105 overflow-visible w-full min-w-0 max-w-xs md:max-w-none mx-auto md:mx-0">
-                    <div className="flex items-center gap-6 justify-center md:justify-start">
-                      <div className={`text-2xl sm:text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}>{contact.icon}</div>
-                      <div>
-                        <div className="text-glass-muted text-xs sm:text-sm uppercase tracking-wide mb-1 text-center md:text-left">{contact.label}</div>
-                        <div className="text-glass-text text-base sm:text-lg font-medium text-center md:text-left">{contact.value}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { quote: "Ashutosh elevated our product experience end-to-end.", name: "Product Lead, Swish" },
+              { quote: "Thinks in systems, ships with craft and speed.", name: "Founder, Think41" },
+              { quote: "Users loved the new flows. Conversion up 18%.", name: "PM, Giva" },
+            ].map((t, i) => (
+              <div key={i} className="glass-card glass-gradient-border rounded-2xl p-6">
+                <p className="text-glass-text text-lg">“{t.quote}”</p>
+                <p className="text-glass-muted text-sm mt-4">{t.name}</p>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-8 text-center md:text-left max-w-xl mx-auto md:mx-0 md:max-w-none">
-              <h3 className="text-3xl font-bold text-glass-text mb-8 text-center md:text-left">Follow My Work</h3>
-              <button
-                type="button"
-                className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl glass-card text-glass-text mx-auto mb-4"
-                onClick={() => setShowFollowMobile((v) => !v)}
-                aria-expanded={showFollowMobile}
-                aria-controls="follow-my-work-cards"
-              >
-                {showFollowMobile ? "Hide" : "Show"} options
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showFollowMobile ? "rotate-180" : ""}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
-
-              <div id="follow-my-work-cards" className={`${showFollowMobile ? "grid" : "hidden"} md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 place-items-center justify-items-center px-4`}>
-                {[
-                  { icon: "🎨", label: "Behance", url: "behance.net/ashutoshsinha1", link: "https://www.behance.net/ashutoshsinha1", color: "blue" },
-                  { icon: "💼", label: "LinkedIn", url: "linkedin.com/in/ashutoshsinha", link: "https://www.linkedin.com/in/ashutoshsinha/", color: "purple" },
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass-card glass-gradient-border p-4 sm:p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
-                  >
-                    <div className="flex flex-col items-center gap-4">
-                      <div className={`text-3xl sm:text-4xl ${getColorClasses(social.color).split(" ")[3]} group-hover:scale-110 transition-transform`}>{social.icon}</div>
-                      <div className="text-center">
-                        <div className="text-glass-text font-bold text-base sm:text-lg">{social.label}</div>
-                        <div className="text-glass-muted text-xs sm:text-sm">{social.url}</div>
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              <div className="mt-12 mb-24 sm:mb-0">
-                <a
-                  href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
-                >
-                  Download Portfolio CV
-                </a>
-              </div>
+      {/* CTA */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto">
+          <div className="glass-card glass-gradient-border rounded-3xl p-8 md:p-12 text-center">
+            <h3 className="text-3xl md:text-5xl font-black mb-4">Let’s build something outstanding</h3>
+            <p className="text-glass-muted max-w-2xl mx-auto">Open to product, UX and motion roles. I can help you design, validate and ship faster.</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#projects" onClick={(e)=>{e.preventDefault();scrollToSection('projects');}} className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl">See projects</a>
+              <a href="#contact" onClick={(e)=>{e.preventDefault();scrollToSection('contact');}} className="glass-card glass-gradient-border px-8 py-4 rounded-2xl">Contact me</a>
             </div>
           </div>
         </div>
@@ -614,7 +465,7 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-12 px-4 border-t border-glass-border/20">
         <div className="container mx-auto text-center">
-          <p className="text-glass-muted text-lg">© 2024 Ashutosh Sinha. Designed with passion in Bangalore, India.</p>
+          <p className="text-glass-muted text-lg">© 2024 Ashutosh Sinha. Designed in Bangalore, India.</p>
         </div>
       </footer>
     </div>
