@@ -226,3 +226,51 @@
     display: none; /* Chrome, Safari */
   }
 }
+
+@layer utilities {
+  .bg-dot-grid {
+    background-image: radial-gradient(hsla(var(--glass-border), 0.25) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: -11px -11px;
+  }
+
+  .glass-gradient-border {
+    position: relative;
+  }
+  .glass-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(120deg,
+      hsla(var(--glass-blue), 0.6),
+      hsla(var(--glass-purple), 0.6),
+      hsla(var(--glass-green), 0.6)
+    );
+    -webkit-mask: 
+      linear-gradient(#000 0 0) content-box, 
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    pointer-events: none;
+  }
+
+  .tilt-hover {
+    transform-style: preserve-3d;
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .tilt-hover:hover {
+    transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-2px);
+    box-shadow: 0 24px 60px hsla(0,0%,0%,0.35);
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
