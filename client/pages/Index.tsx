@@ -426,19 +426,19 @@ export default function Index() {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 transition-transform ${showGetMobile ? "rotate-180" : ""}`}><path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" /></svg>
               </button>
 
-              <div id="get-in-touch-cards" className={`${showGetMobile ? "grid" : "hidden"} md:block grid grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4 px-2 sm:px-4 md:px-0 place-items-center md:place-items-start`}>
+              <div id="get-in-touch-cards" className={`${showGetMobile ? "grid" : "hidden"} md:grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 lg:gap-6 px-2 sm:px-4 md:px-0 place-items-center md:place-items-start`}>
                 {[
                   { icon: "✉", label: "Email", value: "ashusinha543@gmail.com", color: "blue" },
                   { icon: "📞", label: "Phone", value: "On Request", color: "green" },
                   { icon: "📍", label: "Location", value: "Bangalore, India", color: "purple" },
                   { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", color: "blue" },
                 ].map((contact, index) => (
-                  <div key={index} className="glass-card glass-gradient-border rounded-2xl transition-all w-full aspect-square md:aspect-auto p-4 sm:p-5 md:p-6 flex items-center justify-center md:justify-start mx-auto md:mx-0 max-w-[140px] sm:max-w-[160px] md:max-w-none">
+                  <div key={index} className="glass-card glass-gradient-border shine-on-hover rounded-2xl transition-all w-full aspect-square md:aspect-auto p-4 sm:p-5 md:p-6 flex items-center justify-center md:justify-start mx-auto md:mx-0 max-w-[140px] sm:max-w-[160px] md:max-w-none sm:hover:scale-105 md:hover:scale-105 md:hover:shadow-2xl">
                     <div className="flex flex-col items-center md:flex-row md:items-center gap-2 sm:gap-3 md:gap-6 text-center md:text-left">
                       <div className={`text-2xl sm:text-3xl ${getColorClasses(contact.color).split(" ")[3]}`}>{contact.icon}</div>
                       <div>
                         <div className="text-glass-muted text-[10px] sm:text-xs md:text-sm uppercase tracking-wide mb-0.5 md:mb-1">{contact.label}</div>
-                        <div className="text-glass-text text-xs sm:text-sm md:text-lg font-medium break-words">{contact.value}</div>
+                        <div className="text-glass-text text-[10px] sm:text-xs md:text-sm lg:text-base font-medium break-all leading-tight">{contact.value}</div>
                       </div>
                     </div>
                   </div>
