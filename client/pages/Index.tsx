@@ -459,77 +459,85 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className={`${index === 0 ? "lg:col-span-2" : ""} glass-card glass-gradient-border rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 tilt-hover`}
-              >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {projects.map((project, index) => {
+              let spanClass = "";
+              if (index === 0) {
+                spanClass = "lg:col-span-2 lg:row-span-2";
+              } else if (index === 3) {
+                spanClass = "md:col-span-2 lg:col-span-2";
+              }
+              return (
                 <div
-                  className={`aspect-video bg-gradient-to-br ${getColorClasses(project.color).split(" ")[0]} ${getColorClasses(project.color).split(" ")[1]} relative overflow-hidden`}
+                  key={index}
+                  className={`${spanClass} glass-card glass-gradient-border rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 tilt-hover`}
                 >
                   <div
-                    className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500"
-                    style={
-                      project.image
-                        ? {
-                            backgroundImage: `url(${project.image})`,
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            backgroundSize: "cover",
-                          }
-                        : {}
-                    }
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">
-                    {project.tags[0]}
+                    className={`${index === 0 ? "aspect-square" : "aspect-video"} bg-gradient-to-br ${getColorClasses(project.color).split(" ")[0]} ${getColorClasses(project.color).split(" ")[1]} relative overflow-hidden`}
+                  >
+                    <div
+                      className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500"
+                      style={
+                        project.image
+                          ? {
+                              backgroundImage: `url(${project.image})`,
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              backgroundSize: "cover",
+                            }
+                          : {}
+                      }
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">
+                      {project.tags[0]}
+                    </div>
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-xl md:text-2xl font-bold text-glass-text group-hover:text-gradient-accent transition-colors">
+                        {project.title}
+                      </h3>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="shine-on-hover inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-glass-accent hover:text-white transition-all shrink-0"
+                      >
+                        View
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                    <p className="text-glass-muted mt-3 leading-relaxed text-sm md:text-base">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="bg-white/5 border border-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-text/90"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="p-8">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-2xl font-bold text-glass-text group-hover:text-gradient-accent transition-colors">
-                      {project.title}
-                    </h3>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="shine-on-hover inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-glass-accent hover:text-white transition-all"
-                    >
-                      View
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        className="w-4 h-4"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                  <p className="text-glass-muted mt-3 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="bg-white/5 border border-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-text/90"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
