@@ -492,7 +492,22 @@ export default function Index() {
                           : {}
                       }
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div
+                      className="absolute inset-0"
+                      style={
+                        project.overlay
+                          ? {
+                              backgroundImage: `url(${project.overlay})`,
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              backgroundSize: "cover",
+                            }
+                          : {
+                              backgroundImage:
+                                "linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0))",
+                            }
+                      }
+                    />
                     <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">
                       {project.tags[0]}
                     </div>
