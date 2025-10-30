@@ -9,6 +9,8 @@ const projects = [
     color: "blue",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3",
+    overlay:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F563a012edd9a4b6fa7bea50e576f56f4",
     url: "https://www.behance.net/gallery/237581675/CareBridge-Hospital-Admin-dashboard",
   },
   {
@@ -19,6 +21,8 @@ const projects = [
     color: "green",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2",
+    overlay:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F9580ee82953647f7ab1451cae71b3baf",
     url: "https://www.behance.net/gallery/237448291/PayFi-Payment-and-Finance-Management-App",
   },
   {
