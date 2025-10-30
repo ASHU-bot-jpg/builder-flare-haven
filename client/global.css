@@ -13,101 +13,101 @@
   */
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 34% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 34% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 34% 13%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 215 34% 13%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 215 34% 13%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 215 34% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 37 98% 50%;
+    --accent-foreground: 215 34% 13%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 215 34% 13%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 215 34% 13%;
+    --sidebar-primary: 215 34% 13%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 37 98% 50%;
+    --sidebar-accent-foreground: 215 34% 13%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 37 98% 50%;
 
     /* Glassmorphism design variables */
-    --glass-dark: 222 12% 10%;
-    --glass-surface: 222 12% 16%;
-    --glass-border: 222 12% 26%;
-    --glass-text: 0 0% 98%;
-    --glass-muted: 220 9% 65%;
-    --glass-accent: 258 90% 64%;
+    --glass-dark: 215 34% 13%;
+    --glass-surface: 215 34% 20%;
+    --glass-border: 215 34% 35%;
+    --glass-text: 0 0% 100%;
+    --glass-muted: 0 0% 90%;
+    --glass-accent: 37 98% 50%;
     --glass-green: 170 84% 40%;
     --glass-blue: 198 94% 48%;
     --glass-purple: 264 88% 62%;
   }
 
   .dark {
-    --background: 20 14% 10%;
-    --foreground: 0 0% 98%;
+    --background: 215 34% 13%;
+    --foreground: 0 0% 100%;
 
-    --card: 20 14% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 215 34% 20%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 20 14% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 215 34% 13%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 25 95% 53%;
-    --primary-foreground: 20 14% 10%;
+    --primary: 37 98% 50%;
+    --primary-foreground: 215 34% 13%;
 
-    --secondary: 20 14% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 215 34% 20%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 20 14% 15%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 215 34% 20%;
+    --muted-foreground: 0 0% 90%;
 
-    --accent: 25 95% 53%;
-    --accent-foreground: 20 14% 10%;
+    --accent: 37 98% 50%;
+    --accent-foreground: 215 34% 13%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 20 14% 18%;
-    --input: 20 14% 18%;
-    --ring: 25 95% 53%;
+    --border: 215 34% 25%;
+    --input: 215 34% 25%;
+    --ring: 37 98% 50%;
 
-    --sidebar-background: 20 14% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 25 95% 53%;
-    --sidebar-primary-foreground: 20 14% 10%;
-    --sidebar-accent: 20 14% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 20 14% 18%;
-    --sidebar-ring: 25 95% 53%;
+    --sidebar-background: 215 34% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 37 98% 50%;
+    --sidebar-primary-foreground: 215 34% 13%;
+    --sidebar-accent: 215 34% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 34% 25%;
+    --sidebar-ring: 37 98% 50%;
 
     /* Glassmorphism dark mode overrides */
-    --glass-dark: 220 13% 7%;
-    --glass-surface: 220 13% 12%;
-    --glass-border: 220 13% 20%;
-    --glass-text: 0 0% 98%;
-    --glass-muted: 220 9% 70%;
-    --glass-accent: 217 91% 65%;
+    --glass-dark: 215 34% 13%;
+    --glass-surface: 215 34% 20%;
+    --glass-border: 215 34% 35%;
+    --glass-text: 0 0% 100%;
+    --glass-muted: 0 0% 90%;
+    --glass-accent: 37 98% 50%;
     --glass-green: 142 76% 40%;
     --glass-blue: 212 100% 52%;
     --glass-purple: 250 84% 58%;
