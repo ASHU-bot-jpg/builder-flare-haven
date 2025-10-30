@@ -2,60 +2,41 @@ import { useState, useEffect, useRef } from "react";
 
 const projects = [
   {
-    title: "Seekho App UX Case Study",
+    title: "CareBridge - Hospital Admin Dashboard",
     description:
-      "Comprehensive analysis and redesign to improve user engagement and functionality",
-    tags: ["UX Research", "Mobile App", "Education"],
+      "Comprehensive hospital management dashboard for streamlining administrative operations and improving efficiency",
+    tags: ["Dashboard", "Healthcare", "Admin"],
     color: "blue",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3",
-    url: "https://medium.com/@ashusinha543/seekho-app-ux-case-study-c65401c26380",
+    url: "https://www.behance.net/gallery/237581675/CareBridge-Hospital-Admin-dashboard",
   },
   {
-    title: "Swish Redesign Case Study",
+    title: "PayFi - Payment & Finance App",
     description:
-      "Platform revamp focusing on enhanced user experience and interface design",
-    tags: ["Web Design", "Fintech", "UI/UX"],
+      "Modern fintech application for seamless payment processing and financial management",
+    tags: ["Fintech", "Payment", "App"],
     color: "green",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2",
-    url: "https://medium.com/@ashusinha543/swish-app-ux-case-study-807d788b7141",
+    url: "https://www.behance.net/gallery/237448291/PayFi-Payment-and-Finance-Management-App",
   },
   {
-    title: "Think41 Website Redesign",
-    description: "Interactive landing page providing seamless user experience",
-    tags: ["Web Design", "Landing Page", "B2B"],
+    title: "Think41 - Website Redesign",
+    description:
+      "Interactive landing page redesign delivering engaging user experiences and modern web design",
+    tags: ["Web Design", "Landing Page", "Interactive"],
     color: "purple",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F33b4ca4a9bd649caac069be599d5c37e",
     url: "https://www.behance.net/gallery/212201041/Think41-Website-Redesign-An-interactive-landing-page",
   },
   {
-    title: "Giva App Redesign",
-    description:
-      "Profile and landing page redesign improving user interaction and aesthetics",
-    tags: ["Mobile App", "E-commerce", "Fashion"],
-    color: "blue",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F528fa2b04788485586d4a38752a51ea7",
-    url: "https://www.behance.net/gallery/211921171/Giva-App-profile-page-and-landing-page-redesign",
-  },
-  {
-    title: "XO Music App UI Design",
-    description:
-      "Music app interface inspired by The Weeknd's theme with immersive UX",
-    tags: ["Music App", "Dark Theme", "Entertainment"],
-    color: "green",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F8132c335618a451b821cf7c0c23304ba",
-    url: "https://www.behance.net/gallery/211656933/XO-Music-App-A-music-app-UI-Design-%28The-Weeknd-Theme%29",
-  },
-  {
     title: "iCreative Learning",
     description:
-      "Interactive education platform and portfolio site showcasing learning resources",
-    tags: ["Web App", "Education", "Learning"],
-    color: "purple",
+      "Empowering elementary students through creative, fun, and effective learning programs with engaging interactive platform",
+    tags: ["Education", "Learning", "Web App"],
+    color: "blue",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fc1ade894307660928596a906407fdae8a8f7109f",
     url: "https://icreativelearning.netlify.app/",
