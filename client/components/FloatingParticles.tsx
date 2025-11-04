@@ -117,8 +117,8 @@ const FloatingParticles = () => {
             const dy = p2.y - p1.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < 100) {
-              ctx.strokeStyle = `hsl(271 100% 60% / ${0.1 * (1 - dist / 100)})`;
-              ctx.lineWidth = 1;
+              ctx.strokeStyle = `hsl(28 100% 53% / ${0.08 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.8;
               ctx.beginPath();
               ctx.moveTo(p1.x, p1.y);
               ctx.lineTo(p2.x, p2.y);
