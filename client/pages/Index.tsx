@@ -303,7 +303,7 @@ export default function Index() {
             {/* Main Heading */}
             <div className="space-y-4" style={{ animationDelay: "0.2s" }}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-900 leading-[1.1] tracking-tight break-words fade-in-up">
-                <span className="text-gradient-sunset">Ashutosh Sinha</span>
+                <span className="text-gradient-premium">Ashutosh Sinha</span>
               </h1>
               <div className="h-1 w-20 bg-gradient-to-r from-glass-accent to-glass-primary-accent rounded-full line-expand" />
             </div>
@@ -409,7 +409,7 @@ export default function Index() {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-glass-accent" />
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-900 text-glass-text fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Designer & <span className="text-gradient-sunset">Storyteller</span>
+              Designer & <span className="text-gradient-premium">Storyteller</span>
             </h2>
             <p className="text-lg text-glass-muted max-w-3xl mx-auto leading-relaxed font-light fade-in-up" style={{ animationDelay: "0.2s" }}>
               I create meaningful digital experiences that blend aesthetic excellence with user-centered design. Specializing in product design, motion graphics, and design systems.
@@ -466,7 +466,7 @@ export default function Index() {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-glass-accent" />
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-900 text-glass-text fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Featured <span className="text-gradient-sunset">Projects</span>
+              Featured <span className="text-gradient-premium">Projects</span>
             </h2>
           </div>
 
@@ -523,9 +523,9 @@ export default function Index() {
                   </div>
 
                   <div className="p-6 space-y-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-glass-text group-hover:text-gradient-sunset transition-all">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-glass-text group-hover:text-gradient-premium transition-all">
+                    {project.title}
+                  </h3>
                     <p className="text-sm text-glass-muted leading-relaxed">
                       {project.description}
                     </p>
@@ -543,7 +543,7 @@ export default function Index() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-glass-accent hover:text-gradient-sunset transition-all text-sm font-semibold mt-4"
+                      className="inline-flex items-center gap-2 text-glass-accent hover:text-gradient-premium transition-all text-sm font-semibold mt-4"
                     >
                       View Project →
                     </a>
@@ -566,7 +566,7 @@ export default function Index() {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-glass-accent" />
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-900 text-glass-text fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Motion <span className="text-gradient-sunset">Graphics</span>
+              Motion <span className="text-gradient-premium">Graphics</span>
             </h2>
           </div>
 
@@ -615,7 +615,7 @@ export default function Index() {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-glass-accent" />
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-900 text-glass-text fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Skills & <span className="text-gradient-sunset">Abilities</span>
+              Skills & <span className="text-gradient-premium">Abilities</span>
             </h2>
           </div>
 
@@ -658,7 +658,7 @@ export default function Index() {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-glass-accent" />
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-900 text-glass-text fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Let's <span className="text-gradient-sunset">Connect</span>
+              Let's <span className="text-gradient-premium">Connect</span>
             </h2>
             <p className="text-lg text-glass-muted max-w-3xl mx-auto fade-in-up" style={{ animationDelay: "0.2s" }}>
               I'm always interested in hearing about new projects and opportunities.
