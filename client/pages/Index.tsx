@@ -181,7 +181,7 @@ export default function Index() {
         className="fixed top-0 left-0 h-1 w-full z-[60] bg-glass-surface/30 backdrop-blur"
       >
         <div
-          className="h-full bg-gradient-to-r from-glass-accent via-glass-primary-accent to-transparent glow-warm"
+          className="h-full bg-gradient-to-r from-glass-accent via-glass-accent-light to-transparent glow-warm"
           style={{ width: `${progress}%` }}
         />
       </div>
