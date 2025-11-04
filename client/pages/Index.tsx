@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import FloatingParticles from "../components/FloatingParticles";
 
 const projects = [
   {
@@ -94,9 +95,9 @@ const skills = [
 const getColorClasses = (color: string) => {
   switch (color) {
     case "blue":
-      return "from-glass-blue/20 to-glass-blue/5 border-glass-blue/30 text-glass-blue";
+      return "from-glass-neon/20 to-glass-neon/5 border-glass-neon/30 text-glass-neon";
     case "green":
-      return "from-glass-green/20 to-glass-green/5 border-glass-green/30 text-glass-green";
+      return "from-glass-accent-secondary/20 to-glass-accent-secondary/5 border-glass-accent-secondary/30 text-glass-accent-secondary";
     case "purple":
       return "from-glass-purple/20 to-glass-purple/5 border-glass-purple/30 text-glass-purple";
     default:
@@ -171,13 +172,16 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-glass-dark relative overflow-x-hidden pb-24 md:pb-28">
+      {/* Floating Particles Background */}
+      <FloatingParticles />
+
       {/* Scroll progress */}
       <div
         aria-hidden
         className="fixed top-0 left-0 h-[3px] w-full z-[60] bg-white/5 backdrop-blur"
       >
         <div
-          className="h-full bg-gradient-to-r from-glass-green via-glass-purple to-glass-blue glow-accent"
+          className="h-full bg-gradient-to-r from-glass-accent via-glass-neon to-glass-accent-secondary glow-neon"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -189,7 +193,7 @@ export default function Index() {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3"
           >
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-glass-blue to-glass-green text-white font-black shadow glow-accent">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-glass-accent to-glass-neon text-white font-black shadow glow-neon">
               AS
             </span>
             <span className="text-sm text-glass-muted">Ashutosh Sinha</span>
@@ -207,7 +211,7 @@ export default function Index() {
                 onClick={() => scrollToSection(nav.id)}
                 className={`px-4 py-2 rounded-xl text-sm transition-all ${
                   activeSection === nav.id
-                    ? "bg-glass-accent text-white glow-accent"
+                    ? "bg-glass-accent text-white glow-neon"
                     : "text-glass-text hover:text-glass-accent hover:bg-white/5"
                 }`}
               >
@@ -221,7 +225,7 @@ export default function Index() {
               e.preventDefault();
               scrollToSection("contact");
             }}
-            className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl"
+            className="shine-on-hover bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-xl hover:bg-glass-accent hover:text-white transition-all"
           >
             Contact
           </a>
@@ -249,7 +253,7 @@ export default function Index() {
                   }}
                   className={`px-4 py-2 rounded-xl transition-all text-sm font-medium ${
                     activeSection === nav.id
-                      ? "bg-glass-accent text-white glow-accent"
+                      ? "bg-glass-accent text-white glow-neon"
                       : "text-glass-text hover:text-glass-accent hover:bg-glass-accent/10"
                   }`}
                 >
@@ -262,7 +266,7 @@ export default function Index() {
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((v) => !v)}
-            className="w-12 h-12 rounded-full flex items-center justify-center bg-glass-accent text-white shadow-xl glow-accent"
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-glass-accent text-white shadow-xl glow-neon hover:scale-110 transition-transform"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -281,29 +285,34 @@ export default function Index() {
       {/* Hero */}
       <section
         id="home"
-        className="aurora min-h-screen flex items-center justify-center px-4 pt-20 pb-28 sm:pb-24 relative"
+        className="aurora min-h-screen flex items-center justify-center px-4 pt-20 pb-28 sm:pb-24 relative overflow-hidden"
       >
         <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <div className="space-y-8 text-center lg:text-left">
-            <div className="flex items-center gap-3 justify-center lg:justify-start">
-              <div className="w-3 h-3 bg-glass-green rounded-full animate-pulse" />
+            <div className="flex items-center gap-3 justify-center lg:justify-start animate-stagger">
+              <div className="w-3 h-3 bg-glass-accent rounded-full animate-pulse" />
               <span className="text-glass-muted font-medium">Open to work</span>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-glass-accent font-bold text-xs sm:text-sm lg:text-lg tracking-[0.2em] uppercase">
-                PRODUCT & MOTION DESIGNER
+              <h2 className="text-glass-accent-secondary font-bold text-xs sm:text-sm lg:text-lg tracking-[0.2em] uppercase animate-stagger">
+                VISIONARY UX DESIGNER
               </h2>
-              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight break-words">
-                <span className="text-gradient-accent">Ashutosh Sinha</span>
-              </h1>
-              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-xl font-light mx-auto lg:mx-0">
-                Crafting user-centric designs that enhance product experiences
-                for modern digital platforms.
+
+              <div className="relative">
+                <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight break-words animate-stagger">
+                  <span className="text-gradient-neon glow-text">Ashutosh Sinha</span>
+                </h1>
+                <div className="absolute -top-4 left-0 right-0 h-1 bg-gradient-to-r from-glass-accent-secondary via-glass-accent to-transparent rounded-full animate-ribbon" />
+              </div>
+
+              <p className="text-base sm:text-lg lg:text-2xl text-glass-muted leading-relaxed max-w-xl font-light mx-auto lg:mx-0 animate-stagger">
+                Merging art and function to craft{" "}
+                <span className="text-glass-accent font-semibold">interactive future-ready experiences</span>
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-6 w-full text-left animate-stagger">
               {[
                 { icon: "✉", label: "Email", value: "ashusinha543@gmail.com" },
                 { icon: "📞", label: "Phone", value: "On Request" },
@@ -316,7 +325,7 @@ export default function Index() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-3 text-glass-muted min-w-0"
+                  className="flex items-start gap-3 text-glass-muted min-w-0 hover:text-glass-accent transition-colors"
                 >
                   <span className="text-glass-accent text-lg w-6 h-6 flex items-center justify-center shrink-0">
                     {item.icon}
@@ -333,12 +342,12 @@ export default function Index() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start animate-stagger">
               <a
                 href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shine-on-hover bg-gradient-to-r from-glass-green to-glass-blue text-white font-semibold px-8 py-4 rounded-2xl glow-green shadow-2xl text-center"
+                className="shine-on-hover bg-gradient-to-r from-glass-accent to-glass-neon text-white font-semibold px-8 py-4 rounded-2xl glow-electric shadow-2xl text-center hover:scale-105 transition-transform"
               >
                 Download CV
               </a>
@@ -348,13 +357,13 @@ export default function Index() {
                   e.preventDefault();
                   scrollToSection("contact");
                 }}
-                className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent px-8 py-4 rounded-2xl text-center"
+                className="glass-card glass-gradient-border text-glass-text hover:text-glass-accent hover:glow-neon px-8 py-4 rounded-2xl text-center transition-all"
               >
                 Get in Touch
               </a>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 max-w-xl mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 max-w-xl mx-auto lg:mx-0 animate-stagger">
               {[
                 { kpi: "4+", label: "Years Experience" },
                 { kpi: "25+", label: "Projects Delivered" },
@@ -362,7 +371,7 @@ export default function Index() {
               ].map((m, i) => (
                 <div
                   key={i}
-                  className="glass-card glass-gradient-border rounded-2xl px-4 py-5 text-center"
+                  className="glass-card glass-gradient-border card-depth rounded-2xl px-4 py-5 text-center hover:scale-105 transition-transform"
                 >
                   <div className="text-2xl font-black text-glass-text">
                     {m.kpi}
@@ -373,10 +382,10 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end animate-float">
             <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[32rem] lg:h-[32rem] glass-card glass-gradient-border rounded-[3rem] flex items-center justify-center relative overflow-hidden tilt-hover">
-                <div className="absolute inset-0 bg-gradient-to-br from-glass-blue/30 via-glass-purple/10 to-glass-green/30" />
+              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[32rem] lg:h-[32rem] glass-card glass-gradient-border card-depth rounded-[3rem] flex items-center justify-center relative overflow-hidden tilt-hover">
+                <div className="absolute inset-0 bg-gradient-to-br from-glass-neon/20 via-glass-purple/10 to-glass-accent-secondary/20" />
                 <div className="relative z-10 w-64 h-64 lg:w-96 lg:h-96">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fa4aefdb2c86f46308d02098427ded9d2?format=webp&width=1000"
@@ -392,11 +401,14 @@ export default function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-24 px-4 relative">
+      <section
+        id="about"
+        className="py-24 px-4 relative bg-gradient-to-b from-transparent via-glass-surface/20 to-transparent"
+      >
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-reveal">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">
-              About <span className="text-gradient-spotify">Me</span>
+              About <span className="text-gradient-accent">Me</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto leading-relaxed font-light">
               I'm a Product and Motion Designer based in Bangalore, specializing
@@ -433,7 +445,7 @@ export default function Index() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="glass-card glass-gradient-border p-8 rounded-3xl hover:scale-[1.02] transition-all duration-300 group"
+                className="glass-card glass-gradient-border card-depth p-8 rounded-3xl hover:scale-[1.05] hover:glow-neon transition-all duration-300 group"
               >
                 <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
                   {item.icon}
@@ -451,15 +463,18 @@ export default function Index() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-24 px-4 relative">
+      <section
+        id="projects"
+        className="py-24 px-4 relative bg-gradient-to-b from-glass-surface/20 via-transparent to-glass-surface/20"
+      >
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-reveal">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">
-              Featured <span className="text-gradient-accent">Projects</span>
+              Featured <span className="text-gradient-neon">Projects</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               A selection of my recent work in product design, UX research, and
-              motion design
+              motion design presented as art gallery pieces
             </p>
           </div>
 
@@ -474,13 +489,16 @@ export default function Index() {
               return (
                 <div
                   key={index}
-                  className={`${spanClass} glass-card glass-gradient-border rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 tilt-hover`}
+                  className={`${spanClass} glass-card glass-gradient-border card-depth rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2 tilt-hover`}
+                  style={{
+                    animation: `stagger-in 0.6s ease-out ${index * 0.1}s both`,
+                  }}
                 >
                   <div
                     className={`${index === 0 ? "aspect-square" : "aspect-video"} bg-gradient-to-br ${getColorClasses(project.color).split(" ")[0]} ${getColorClasses(project.color).split(" ")[1]} relative overflow-hidden`}
                   >
                     <div
-                      className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.03] duration-500"
+                      className="w-full h-full bg-glass-dark/10 backdrop-blur-sm group-hover:bg-glass-dark/5 transition-colors flex items-center justify-center transform group-hover:scale-[1.05] duration-500"
                       style={
                         project.image
                           ? {
@@ -504,24 +522,24 @@ export default function Index() {
                             }
                           : {
                               backgroundImage:
-                                "linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0))",
+                                "linear-gradient(to top, rgba(177, 59, 255, 0.2), rgba(177, 59, 255, 0))",
                             }
                       }
                     />
-                    <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">
+                    <div className="absolute bottom-3 right-3 text-xs px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur font-medium text-glass-accent">
                       {project.tags[0]}
                     </div>
                   </div>
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 space-y-4">
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-glass-text group-hover:text-gradient-accent transition-colors">
+                      <h3 className="text-xl md:text-2xl font-bold text-glass-text group-hover:text-gradient-neon transition-colors">
                         {project.title}
                       </h3>
                       <a
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="shine-on-hover inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-glass-accent hover:text-white transition-all shrink-0"
+                        className="shine-on-hover inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-glass-accent hover:text-white hover:glow-neon transition-all shrink-0"
                       >
                         View
                         <svg
@@ -540,14 +558,14 @@ export default function Index() {
                         </svg>
                       </a>
                     </div>
-                    <p className="text-glass-muted mt-3 leading-relaxed text-sm md:text-base">
+                    <p className="text-glass-muted leading-relaxed text-sm md:text-base">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mt-4">
+                    <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="bg-white/5 border border-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-text/90"
+                          className="bg-glass-accent/10 border border-glass-accent/20 backdrop-blur-sm text-xs px-3 py-1 rounded-full font-medium text-glass-accent hover:bg-glass-accent/20 transition-colors"
                         >
                           {tag}
                         </span>
@@ -562,11 +580,14 @@ export default function Index() {
       </section>
 
       {/* Motion */}
-      <section id="motion" className="py-24 px-4 relative">
+      <section
+        id="motion"
+        className="py-24 px-4 relative bg-gradient-to-b from-transparent via-glass-surface/20 to-transparent"
+      >
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-reveal">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">
-              Motion <span className="text-gradient-accent">Graphics</span>
+              Motion <span className="text-gradient-neon">Graphics</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               A selection of motion design and micro-interactions.
@@ -586,7 +607,7 @@ export default function Index() {
               {motionVideos.concat(motionVideos).map((video, i) => (
                 <div
                   key={`${video.title}-${i}`}
-                  className="glass-card glass-gradient-border rounded-2xl p-2 min-w-[260px] sm:min-w-[420px] snap-center w-full max-w-md"
+                  className="glass-card glass-gradient-border card-depth rounded-2xl p-2 min-w-[260px] sm:min-w-[420px] snap-center w-full max-w-md hover:scale-105 transition-transform"
                 >
                   <div className="aspect-video rounded-xl overflow-hidden">
                     <iframe
@@ -609,11 +630,14 @@ export default function Index() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="py-24 px-4 relative">
+      <section
+        id="skills"
+        className="py-24 px-4 relative bg-gradient-to-b from-glass-surface/20 via-transparent to-glass-surface/20"
+      >
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-reveal">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-6">
-              Skills & <span className="text-gradient-spotify">Expertise</span>
+              Skills & <span className="text-gradient-neon">Expertise</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               My core competencies in design and user experience
@@ -622,7 +646,13 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {skills.map((skill, index) => (
-              <div key={index} className="space-y-4">
+              <div
+                key={index}
+                className="space-y-4"
+                style={{
+                  animation: `stagger-in 0.6s ease-out ${index * 0.1}s both`,
+                }}
+              >
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-glass-text">
                     {skill.name}
@@ -633,9 +663,9 @@ export default function Index() {
                     {skill.level}%
                   </span>
                 </div>
-                <div className="w-full glass-card glass-gradient-border rounded-full h-4 overflow-hidden">
+                <div className="w-full glass-card glass-gradient-border card-depth rounded-full h-4 overflow-hidden">
                   <div
-                    className={`bg-gradient-to-r ${skill.color === "blue" ? "from-glass-blue to-glass-purple" : skill.color === "green" ? "from-glass-green to-glass-blue" : "from-glass-purple to-glass-blue"} h-4 rounded-full transition-all duration-1000 ${skill.color === "green" ? "glow-green" : "glow-accent"}`}
+                    className={`bg-gradient-to-r ${skill.color === "blue" ? "from-glass-neon to-glass-purple" : skill.color === "green" ? "from-glass-accent-secondary to-glass-neon" : "from-glass-purple to-glass-neon"} h-4 rounded-full transition-all duration-1000 ${skill.color === "green" ? "glow-neon" : "glow-electric"}`}
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
@@ -646,11 +676,14 @@ export default function Index() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 px-4 relative">
+      <section
+        id="contact"
+        className="py-24 px-4 relative bg-gradient-to-b from-transparent via-glass-surface/20 to-transparent"
+      >
         <div className="container mx-auto px-6 sm:px-4">
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 animate-reveal">
             <h2 className="text-5xl lg:text-7xl font-black text-glass-text mb-8">
-              Let's <span className="text-gradient-accent">Connect</span>
+              Let's <span className="text-gradient-neon">Connect</span>
             </h2>
             <p className="text-xl lg:text-2xl text-glass-muted max-w-4xl mx-auto font-light">
               Available for freelance projects and full-time opportunities
@@ -718,7 +751,7 @@ export default function Index() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="glass-card glass-gradient-border shine-on-hover rounded-2xl transition-all w-full aspect-square md:aspect-auto p-4 sm:p-5 md:p-6 flex items-center justify-center md:justify-start mx-auto md:mx-0 max-w-[140px] sm:max-w-[160px] md:max-w-none sm:hover:scale-105 md:hover:scale-105 md:hover:shadow-2xl"
+                    className="glass-card glass-gradient-border card-depth shine-on-hover rounded-2xl transition-all w-full aspect-square md:aspect-auto p-4 sm:p-5 md:p-6 flex items-center justify-center md:justify-start mx-auto md:mx-0 max-w-[140px] sm:max-w-[160px] md:max-w-none sm:hover:scale-105 md:hover:scale-105 md:hover:glow-neon"
                   >
                     <div className="flex flex-col items-center md:flex-row md:items-center gap-2 sm:gap-3 md:gap-6 text-center md:text-left">
                       <div
@@ -793,7 +826,7 @@ export default function Index() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card glass-gradient-border p-4 sm:p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
+                    className="glass-card glass-gradient-border card-depth p-4 sm:p-6 rounded-2xl transition-all group sm:hover:scale-105 w-full min-w-0 max-w-sm mx-auto"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div
@@ -819,7 +852,7 @@ export default function Index() {
                   href="https://drive.google.com/file/d/1Dtnw3oqgNISNtuvN6vT2UNUvJ5uFI-FH/view"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-green to-glass-blue text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-green shadow-2xl text-lg"
+                  className="w-full max-w-md mx-auto inline-block text-center bg-gradient-to-r from-glass-accent to-glass-neon text-white font-bold py-4 rounded-2xl transition-all hover:scale-105 glow-electric shadow-2xl text-lg"
                 >
                   Download Portfolio CV
                 </a>
