@@ -193,7 +193,7 @@ export default function Index() {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-2 group"
           >
-            <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-glass-accent to-glass-primary-accent text-white font-bold text-xs shadow glow-warm group-hover:scale-110 transition-transform">
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-glass-accent to-glass-accent-light text-white font-bold text-xs shadow glow-warm group-hover:scale-110 transition-transform">
               AS
             </span>
             <span className="text-sm font-medium text-glass-text hidden sm:inline group-hover:text-glass-accent transition-colors">
