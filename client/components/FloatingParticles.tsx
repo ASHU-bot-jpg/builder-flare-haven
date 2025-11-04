@@ -42,10 +42,10 @@ const FloatingParticles = () => {
         baseX: Math.random() * canvas.width,
         baseY: Math.random() * canvas.height,
         size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        color: ["hsl(271 100% 60%)", "hsl(260 60% 50%)", "hsl(48 100% 50%)"][
+        opacity: Math.random() * 0.4 + 0.15,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        color: ["hsl(28 100% 53%)", "hsl(28 90% 45%)", "hsl(0 0% 35%)"][
           Math.floor(Math.random() * 3)
         ],
       }));
