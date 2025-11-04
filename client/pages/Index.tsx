@@ -97,9 +97,9 @@ const getColorClasses = (color: string) => {
     case "blue":
       return "from-glass-accent/20 to-glass-accent/5 border-glass-accent/30 text-glass-accent";
     case "green":
-      return "from-glass-accent/15 to-glass-primary-accent/5 border-glass-primary-accent/30 text-glass-accent";
+      return "from-glass-accent-light/15 to-glass-accent/5 border-glass-accent/30 text-glass-accent";
     case "purple":
-      return "from-glass-primary-accent/20 to-glass-primary-accent/5 border-glass-primary-accent/30 text-glass-primary-accent";
+      return "from-glass-accent-dim/20 to-glass-accent-dim/5 border-glass-accent-dim/30 text-glass-accent-dim";
     default:
       return "from-glass-accent/20 to-glass-accent/5 border-glass-accent/30 text-glass-accent";
   }
