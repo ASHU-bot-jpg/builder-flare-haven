@@ -144,8 +144,8 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-glass-dark relative overflow-x-hidden">
-      <FloatingParticles />
+    <div className="min-h-screen bg-glass-dark dark:bg-glass-dark light:bg-white relative overflow-x-hidden transition-colors duration-300">
+      {isDark && <FloatingParticles />}
 
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 h-1 w-full z-[60] bg-glass-surface/30">
