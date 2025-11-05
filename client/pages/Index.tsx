@@ -74,6 +74,7 @@ export default function Index() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [autoScroll, setAutoScroll] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [isDark, setIsDark] = useState(true);
   const motionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
