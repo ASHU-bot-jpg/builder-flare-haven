@@ -312,12 +312,9 @@ export default function Index() {
                 Download CV
               </a>
               <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("contact");
-                }}
-                className="inline-flex items-center justify-center border border-glass-accent/50 text-glass-text px-8 py-3 rounded-lg hover:bg-glass-surface/50 transition-colors font-medium"
+                href="mailto:ashusinha543@gmail.com"
+                target="_blank"
+                className="inline-flex items-center justify-center border border-glass-accent/50 text-glass-text px-8 py-3 rounded-lg hover:bg-glass-surface/50 transition-colors font-medium cursor-pointer"
               >
                 Get in Touch
               </a>
