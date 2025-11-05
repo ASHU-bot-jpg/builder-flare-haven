@@ -206,8 +206,8 @@
     border-radius: inherit;
     background: linear-gradient(
       120deg,
-      hsla(8 98% 52% / 0.3),
-      hsla(30 100% 99% / 0.05)
+      hsla(var(--glass-accent) / 0.3),
+      hsla(var(--glass-border) / 0.1)
     );
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
