@@ -107,25 +107,6 @@ const FloatingParticles = () => {
 
       ctx.globalAlpha = 1;
 
-      // Draw connecting lines for visible particles
-      particlesRef.current.forEach((p1) => {
-        particlesRef.current.forEach((p2) => {
-          if (p1.id < p2.id) {
-            const dx = p2.x - p1.x;
-            const dy = p2.y - p1.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 100) {
-              ctx.strokeStyle = `hsl(28 100% 53% / ${0.08 * (1 - dist / 100)})`;
-              ctx.lineWidth = 0.8;
-              ctx.beginPath();
-              ctx.moveTo(p1.x, p1.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.stroke();
-            }
-          }
-        });
-      });
-
       animationRef.current = requestAnimationFrame(drawParticles);
     };
 
