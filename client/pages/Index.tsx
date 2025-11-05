@@ -18,7 +18,7 @@ const projects = [
     description: "Modern application for seamless payment processing",
     tags: ["Fintech", "Payment", "App"],
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fb94e510cf1c742a189affd01fad985a2",
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F123b2f90ad2043ab9ecedfd62f2db331?format=webp&width=800",
     url: "https://www.behance.net/gallery/237448291/PayFi-Payment-and-Finance-Management-App",
   },
   {
