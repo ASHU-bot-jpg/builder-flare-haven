@@ -313,21 +313,6 @@ export default function Index() {
                 Get in Touch
               </a>
             </div>
-
-            <div className="flex gap-8 pt-8">
-              {[
-                { label: "Experience", value: "4+" },
-                { label: "Projects", value: "25+" },
-                { label: "Clients", value: "10+" },
-              ].map((stat, idx) => (
-                <div key={idx}>
-                  <div className="text-3xl font-900 text-glass-accent">{stat.value}</div>
-                  <div className="text-xs text-glass-muted uppercase tracking-wider mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Hero Image */}
