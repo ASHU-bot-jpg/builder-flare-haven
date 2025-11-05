@@ -125,6 +125,16 @@ export default function Index() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
+    }
+  }, [isDark]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
