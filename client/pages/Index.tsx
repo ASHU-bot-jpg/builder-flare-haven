@@ -206,7 +206,12 @@ export default function Index() {
                 className="w-5 h-5"
               >
                 <circle cx="12" cy="12" r="5" />
-                <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path
+                  d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
               </svg>
             ) : (
               <svg
@@ -276,7 +281,10 @@ export default function Index() {
       >
         <div className="container mx-auto max-w-5xl grid lg:grid-cols-2 gap-16 items-center">
           {/* Hero Content */}
-          <div className="space-y-12" style={{ animation: "fade-in-left 0.8s ease-out forwards" }}>
+          <div
+            className="space-y-12"
+            style={{ animation: "fade-in-left 0.8s ease-out forwards" }}
+          >
             <div className="space-y-6">
               <div className="inline-block">
                 <span className="text-xs font-medium text-glass-muted uppercase tracking-[0.15em]">
@@ -289,7 +297,8 @@ export default function Index() {
                 <span className="text-glass-accent">Sinha</span>
               </h1>
               <p className="text-lg text-glass-muted leading-relaxed max-w-md font-light">
-                I design thoughtful digital experiences that merge aesthetic excellence with functional innovation.
+                I design thoughtful digital experiences that merge aesthetic
+                excellence with functional innovation.
               </p>
             </div>
 
@@ -316,7 +325,13 @@ export default function Index() {
           </div>
 
           {/* Hero Image */}
-          <div className="relative" style={{ animation: "fade-in-right 0.8s ease-out 0.2s forwards", opacity: 0 }}>
+          <div
+            className="relative"
+            style={{
+              animation: "fade-in-right 0.8s ease-out 0.2s forwards",
+              opacity: 0,
+            }}
+          >
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-glass-border/20">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fa4aefdb2c86f46308d02098427ded9d2?format=webp&width=1000"
@@ -338,22 +353,47 @@ export default function Index() {
               About my work
             </h2>
             <p className="text-xl text-glass-muted leading-relaxed mb-6 font-light">
-              I'm passionate about creating digital experiences that balance aesthetic beauty with intuitive functionality. My approach combines deep user research, iterative design, and attention to detail.
+              I'm passionate about creating digital experiences that balance
+              aesthetic beauty with intuitive functionality. My approach
+              combines deep user research, iterative design, and attention to
+              detail.
             </p>
             <p className="text-xl text-glass-muted leading-relaxed font-light">
-              Specializing in product design, motion graphics, and design systems, I help teams craft digital products that resonate with users and achieve business goals.
+              Specializing in product design, motion graphics, and design
+              systems, I help teams craft digital products that resonate with
+              users and achieve business goals.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-8">
             {[
-              { title: "Research", desc: "Understanding user needs through deep research" },
-              { title: "Design", desc: "Crafting thoughtful visual and interaction design" },
-              { title: "Motion", desc: "Adding life through meaningful animation" },
+              {
+                title: "Research",
+                desc: "Understanding user needs through deep research",
+              },
+              {
+                title: "Design",
+                desc: "Crafting thoughtful visual and interaction design",
+              },
+              {
+                title: "Motion",
+                desc: "Adding life through meaningful animation",
+              },
             ].map((item, idx) => (
-              <div key={idx} className="space-y-3" style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s forwards`, opacity: 0 }}>
-                <h3 className="text-lg font-semibold text-glass-text">{item.title}</h3>
-                <p className="text-sm text-glass-muted leading-relaxed">{item.desc}</p>
+              <div
+                key={idx}
+                className="space-y-3"
+                style={{
+                  animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s forwards`,
+                  opacity: 0,
+                }}
+              >
+                <h3 className="text-lg font-semibold text-glass-text">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-glass-muted leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -378,7 +418,10 @@ export default function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group cursor-pointer"
-                style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s forwards`, opacity: 0 }}
+                style={{
+                  animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s forwards`,
+                  opacity: 0,
+                }}
               >
                 <div className="space-y-4">
                   <div className="relative overflow-hidden rounded-lg border border-glass-border/20 group-hover:border-glass-accent/40 transition-colors">
@@ -396,7 +439,9 @@ export default function Index() {
                         {project.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-glass-muted">{project.subtitle}</p>
+                    <p className="text-sm text-glass-muted">
+                      {project.subtitle}
+                    </p>
                     <p className="text-sm text-glass-muted leading-relaxed">
                       {project.description}
                     </p>
@@ -471,10 +516,21 @@ export default function Index() {
 
           <div className="grid sm:grid-cols-2 gap-12">
             {skills.map((skill, idx) => (
-              <div key={idx} className="space-y-3" style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s forwards`, opacity: 0 }}>
+              <div
+                key={idx}
+                className="space-y-3"
+                style={{
+                  animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s forwards`,
+                  opacity: 0,
+                }}
+              >
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-lg font-semibold text-glass-text">{skill.name}</span>
-                  <span className="text-sm text-glass-muted">{skill.level}%</span>
+                  <span className="text-lg font-semibold text-glass-text">
+                    {skill.name}
+                  </span>
+                  <span className="text-sm text-glass-muted">
+                    {skill.level}%
+                  </span>
                 </div>
                 <div className="h-1 bg-glass-surface rounded-full overflow-hidden">
                   <div
@@ -497,22 +553,39 @@ export default function Index() {
               Let's Connect
             </h2>
             <p className="text-xl text-glass-muted font-light">
-              Open to new projects, collaborations, and opportunities to create remarkable digital experiences.
+              Open to new projects, collaborations, and opportunities to create
+              remarkable digital experiences.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 mb-12">
             {[
-              { label: "Email", value: "ashusinha543@gmail.com", href: "mailto:ashusinha543@gmail.com" },
-              { label: "LinkedIn", value: "linkedin.com/in/ashutoshsinha", href: "https://www.linkedin.com/in/ashutoshsinha/" },
-              { label: "Behance", value: "behance.net/ashutoshsinha1", href: "https://www.behance.net/ashutoshsinha1" },
+              {
+                label: "Email",
+                value: "ashusinha543@gmail.com",
+                href: "mailto:ashusinha543@gmail.com",
+              },
+              {
+                label: "LinkedIn",
+                value: "linkedin.com/in/ashutoshsinha",
+                href: "https://www.linkedin.com/in/ashutoshsinha/",
+              },
+              {
+                label: "Behance",
+                value: "behance.net/ashutoshsinha1",
+                href: "https://www.behance.net/ashutoshsinha1",
+              },
               { label: "Location", value: "Bangalore, India", href: "#" },
             ].map((contact, idx) => (
               <a
                 key={idx}
                 href={contact.href}
                 target={contact.href.startsWith("http") ? "_blank" : undefined}
-                rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                rel={
+                  contact.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 className="border border-glass-border/20 rounded-lg p-6 hover:border-glass-accent/40 hover:bg-glass-surface/50 transition-all group"
               >
                 <div className="text-xs text-glass-muted uppercase tracking-wider mb-2 font-medium">

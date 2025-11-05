@@ -76,8 +76,10 @@ const FloatingParticles = () => {
         }
 
         // Attraction to base position (subtle drift)
-        const baseX = particle.baseX + Math.sin(scrollRef.current.y * 0.0005) * 30;
-        const baseY = particle.baseY + Math.cos(scrollRef.current.y * 0.0005) * 30;
+        const baseX =
+          particle.baseX + Math.sin(scrollRef.current.y * 0.0005) * 30;
+        const baseY =
+          particle.baseY + Math.cos(scrollRef.current.y * 0.0005) * 30;
         const returnDx = baseX - particle.x;
         const returnDy = baseY - particle.y;
         particle.vx += returnDx * 0.01;
