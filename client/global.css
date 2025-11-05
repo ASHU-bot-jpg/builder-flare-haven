@@ -12,6 +12,7 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
+    /* Light Mode (Default) */
     --background: 0 0% 100%;
     --foreground: 210 14% 4%;
 
@@ -22,42 +23,42 @@
     --popover-foreground: 210 14% 4%;
 
     --primary: 210 14% 4%;
-    --primary-foreground: 30 100% 99%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 14% 8%;
-    --secondary-foreground: 30 100% 99%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 210 14% 4%;
 
-    --muted: 210 14% 25%;
-    --muted-foreground: 30 100% 95%;
+    --muted: 210 14% 45%;
+    --muted-foreground: 0 0% 98%;
 
     --accent: 8 98% 52%;
-    --accent-foreground: 210 14% 4%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 14% 15%;
-    --input: 210 14% 15%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
     --ring: 210 14% 4%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 210 14% 4%;
-    --sidebar-foreground: 30 100% 99%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 14% 4%;
     --sidebar-primary: 210 14% 4%;
-    --sidebar-primary-foreground: 30 100% 99%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 8 98% 52%;
-    --sidebar-accent-foreground: 210 14% 4%;
-    --sidebar-border: 210 14% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 90%;
     --sidebar-ring: 8 98% 52%;
 
-    /* Glassmorphism design variables - Magazine aesthetic */
-    --glass-dark: 210 14% 4%;
-    --glass-surface: 210 14% 8%;
-    --glass-surface-elevated: 210 14% 12%;
-    --glass-border: 210 14% 20%;
-    --glass-text: 30 100% 99%;
-    --glass-muted: 210 14% 70%;
+    /* Glassmorphism design variables - Light Mode */
+    --glass-dark: 0 0% 100%;
+    --glass-surface: 0 0% 96%;
+    --glass-surface-elevated: 0 0% 94%;
+    --glass-border: 0 0% 85%;
+    --glass-text: 210 14% 4%;
+    --glass-muted: 210 14% 45%;
     --glass-accent: 8 98% 52%;
     --glass-accent-yellow: 53 98% 51%;
     --glass-accent-purple: 270 100% 59%;
