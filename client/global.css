@@ -340,16 +340,16 @@
   /* Depth effect for cards */
   .card-depth {
     box-shadow:
-      0 0 0 1px hsla(8 98% 52% / 0.08),
-      0 10px 40px hsla(0 0% 0% / 0.3),
-      0 30px 80px hsla(0 0% 0% / 0.2);
+      0 0 0 1px hsla(var(--glass-accent) / 0.08),
+      0 10px 40px hsla(0 0% 0% / 0.08),
+      0 30px 80px hsla(0 0% 0% / 0.05);
   }
 
   .card-depth:hover {
     box-shadow:
-      0 0 0 1px hsla(8 98% 52% / 0.15),
-      0 20px 60px hsla(0 0% 0% / 0.4),
-      0 50px 120px hsla(0 0% 0% / 0.3);
+      0 0 0 1px hsla(var(--glass-accent) / 0.15),
+      0 20px 60px hsla(0 0% 0% / 0.15),
+      0 50px 120px hsla(0 0% 0% / 0.1);
   }
 
   /* Accent line decoration */
