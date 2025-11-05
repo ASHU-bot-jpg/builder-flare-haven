@@ -34,20 +34,18 @@ const FloatingParticles = () => {
     };
 
     const initializeParticles = () => {
-      const particleCount = Math.min(30, Math.floor(canvas.width / 100));
+      const particleCount = Math.min(20, Math.floor(canvas.width / 120));
       particlesRef.current = Array.from({ length: particleCount }, (_, i) => ({
         id: i,
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         baseX: Math.random() * canvas.width,
         baseY: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.4 + 0.15,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        color: ["hsl(28 100% 53%)", "hsl(28 90% 45%)", "hsl(0 0% 35%)"][
-          Math.floor(Math.random() * 3)
-        ],
+        size: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.25 + 0.1,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        color: "hsl(210 14% 30%)",
       }));
     };
 
