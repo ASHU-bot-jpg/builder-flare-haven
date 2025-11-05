@@ -156,7 +156,7 @@ export default function Index() {
       </div>
 
       {/* Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-glass-dark/60 border-b border-glass-border/10">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-glass-dark/50 border-b border-glass-border/20 dark:bg-glass-dark/60">
         <nav className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <button
             onClick={() => scrollToSection("home")}
