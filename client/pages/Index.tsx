@@ -9,7 +9,7 @@ const projects = [
       "Comprehensive dashboard for streamlining administrative operations",
     tags: ["Dashboard", "Healthcare", "Admin"],
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F386148064ead4e69969488f9274f6dc3",
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F2218a8b31f6e4332b3fb78734283799d?format=webp&width=800",
     url: "https://www.behance.net/gallery/237581675/CareBridge-Hospital-Admin-dashboard",
   },
   {
