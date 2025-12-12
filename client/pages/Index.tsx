@@ -10,7 +10,7 @@ const projects = [
     tags: ["Dashboard", "Healthcare", "Admin"],
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F31b50c7497fb4e23b90b239c0998c943",
-    url: "https://www.behance.net/gallery/237581675/CareBridge-Hospital-Admin-dashboard",
+    url: "https://www.notion.so/CareBridge-Hospital-Admin-Dashboard-2c78b106089e805ca9bbfb0f31ef7e2d?source=copy_link",
   },
   {
     title: "PayFi - Payment & Finance App",
@@ -19,7 +19,7 @@ const projects = [
     tags: ["Fintech", "Payment", "App"],
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F9020757546914310a6118cb5f76a8a92",
-    url: "https://www.behance.net/gallery/237448291/PayFi-Payment-and-Finance-Management-App",
+    url: "https://www.notion.so/PayFi-Smart-Bill-Payment-Dashboard-2c78b106089e8088b417e84d377e5a49?source=copy_link",
   },
   {
     title: "Think41 - Website Redesign",
