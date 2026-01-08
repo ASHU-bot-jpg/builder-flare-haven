@@ -3,14 +3,14 @@ import FloatingParticles from "../components/FloatingParticles";
 
 const projects = [
   {
-    title: "CareBridge - Hospital Admin Dashboard",
-    subtitle: "Healthcare Management",
+    title: "Health Monitoring System Dashboard",
+    subtitle: "Clinician Dashboard",
     description:
-      "Comprehensive dashboard for streamlining administrative operations",
-    tags: ["Dashboard", "Healthcare", "Admin"],
+      "Comprehensive healthcare dashboard focusing on reducing the hassle of patients and clinicians.",
+    tags: ["Healthcare", "Dashboard", "Patients", "Clinician", "Health Monitoring System"],
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F31b50c7497fb4e23b90b239c0998c943",
-    url: "https://www.notion.so/CareBridge-Hospital-Admin-Dashboard-2c78b106089e805ca9bbfb0f31ef7e2d?source=copy_link",
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F34390abdeef3408d84dccbcb1c7417fc?format=webp&width=800",
+    url: "https://www.notion.so/Health-Monitoring-System-Dashboard-2e28b106089e80b6acedf788bbd3a400?source=copy_link",
   },
   {
     title: "PayFi - Payment & Finance App",
