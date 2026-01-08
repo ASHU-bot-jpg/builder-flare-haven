@@ -28,13 +28,14 @@ const projects = [
     url: "https://www.notion.so/PayFi-Smart-Bill-Payment-Dashboard-2c78b106089e8088b417e84d377e5a49?source=copy_link",
   },
   {
-    title: "Think41 - Website Redesign",
-    subtitle: "Web Experience",
-    description: "Interactive landing page redesign with modern aesthetics",
-    tags: ["Web Design", "Landing Page", "Interactive"],
+    title: "CareBridge - Hospital Admin Dashboard",
+    subtitle: "Healthcare Management",
+    description:
+      "Comprehensive dashboard for streamlining administrative operations",
+    tags: ["Dashboard", "Healthcare", "Admin"],
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F33b4ca4a9bd649caac069be599d5c37e",
-    url: "https://www.behance.net/gallery/212201041/Think41-Website-Redesign-An-interactive-landing-page",
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F31b50c7497fb4e23b90b239c0998c943",
+    url: "https://www.notion.so/CareBridge-Hospital-Admin-Dashboard-2c78b106089e805ca9bbfb0f31ef7e2d?source=copy_link",
   },
   {
     title: "iCreative Learning",
