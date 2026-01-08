@@ -7,7 +7,13 @@ const projects = [
     subtitle: "Clinician Dashboard",
     description:
       "Comprehensive healthcare dashboard focusing on reducing the hassle of patients and clinicians.",
-    tags: ["Healthcare", "Dashboard", "Patients", "Clinician", "Health Monitoring System"],
+    tags: [
+      "Healthcare",
+      "Dashboard",
+      "Patients",
+      "Clinician",
+      "Health Monitoring System",
+    ],
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F34390abdeef3408d84dccbcb1c7417fc?format=webp&width=800",
     url: "https://www.notion.so/Health-Monitoring-System-Dashboard-2e28b106089e80b6acedf788bbd3a400?source=copy_link",
