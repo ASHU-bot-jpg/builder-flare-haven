@@ -46,6 +46,16 @@ const projects = [
       "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2Fc1ade894307660928596a906407fdae8a8f7109f",
     url: "https://icreativelearning.netlify.app/",
   },
+  {
+    title: "Swiggy vs Zomato: Same Problem, Two very different UX philosphies",
+    subtitle: "UX case study from everyday food ordering",
+    description:
+      "How do Swiggy and Zomato, despite solving the same user problem, create different decision-making experiences through UI and UX?",
+    tags: ["Comparison", "E-commerce", "Food Delivering Service", "Cards Design"],
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F4dea029619d64c5c95c3070ae0fffe0b%2F663e2d06c81246a0bba97b7476949408?format=webp&width=800",
+    url: "https://www.notion.so/Swiggy-vs-Zomato-Same-Problem-Two-Very-Different-UX-Philosophies-2ee8b106089e8012aab2d67cd140b22b?source=copy_link",
+  },
 ];
 
 const motionVideos: { title: string; embedUrl: string }[] = [
