@@ -78,7 +78,7 @@ const motionVideos: { title: string; embedUrl: string }[] = [
 ];
 
 const skills = [
-  { name: "Product Design", level: 95 },
+  { name: "User Experience Design", level: 95 },
   { name: "Motion Design", level: 90 },
   { name: "UX Research", level: 88 },
   { name: "Prototyping", level: 92 },
