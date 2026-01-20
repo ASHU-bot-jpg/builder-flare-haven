@@ -193,7 +193,7 @@ export default function Index() {
               { id: "projects", label: "Work" },
               { id: "motion", label: "Motion" },
               { id: "skills", label: "Skills" },
-              { id: "contact", label: "Contact" },
+              { id: "contact", label: "Connect" },
             ].map((nav) => (
               <button
                 key={nav.id}
